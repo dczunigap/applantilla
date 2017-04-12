@@ -1,0 +1,589 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <changeSet author="dzuniga" id="1491957486053-1">
+        <createSequence catalogName="plantilla_db" schemaName="public" sequenceName="catalogogeneral_cat_id_seq"/>
+    </changeSet>
+    <changeSet author="dzuniga" id="1491957486053-2">
+        <createSequence catalogName="plantilla_db" schemaName="public" sequenceName="categoriacodigo_categoriacodigo_id_seq"/>
+    </changeSet>
+    <changeSet author="dzuniga" id="1491957486053-3">
+        <createSequence catalogName="plantilla_db" schemaName="public" sequenceName="categoriacodigoconfiguracion_catconfig_id_seq"/>
+    </changeSet>
+    <changeSet author="dzuniga" id="1491957486053-4">
+        <createSequence catalogName="plantilla_db" schemaName="public" sequenceName="clasificaciongeneralarchivos_cga_id_seq"/>
+    </changeSet>
+    <changeSet author="dzuniga" id="1491957486053-5">
+        <createSequence catalogName="plantilla_db" schemaName="public" sequenceName="codigolegal_codigolegal_id_seq"/>
+    </changeSet>
+    <changeSet author="dzuniga" id="1491957486053-6">
+        <createSequence catalogName="plantilla_db" schemaName="public" sequenceName="codigosistema_codigosist_id_seq"/>
+    </changeSet>
+    <changeSet author="dzuniga" id="1491957486053-7">
+        <createSequence catalogName="plantilla_db" schemaName="public" sequenceName="entidad_entidad_id_seq"/>
+    </changeSet>
+    <changeSet author="dzuniga" id="1491957486053-8">
+        <createSequence catalogName="plantilla_db" schemaName="public" sequenceName="entidadmapeo_entidadmapeo_id_seq"/>
+    </changeSet>
+    <changeSet author="dzuniga" id="1491957486053-9">
+        <createSequence catalogName="plantilla_db" schemaName="public" sequenceName="metadatauser_mu_id_seq"/>
+    </changeSet>
+    <changeSet author="dzuniga" id="1491957486053-10">
+        <createSequence catalogName="plantilla_db" schemaName="public" sequenceName="plantilla_catalogo_elementos_pce_id_seq"/>
+    </changeSet>
+    <changeSet author="dzuniga" id="1491957486053-11">
+        <createSequence catalogName="plantilla_db" schemaName="public" sequenceName="plantilla_configuracion_pc_id_seq"/>
+    </changeSet>
+    <changeSet author="dzuniga" id="1491957486053-12">
+        <createSequence catalogName="plantilla_db" schemaName="public" sequenceName="plantilla_elementos_pe_id_seq"/>
+    </changeSet>
+    <changeSet author="dzuniga" id="1491957486053-13">
+        <createSequence catalogName="plantilla_db" schemaName="public" sequenceName="plantilla_esqueleto_configuraci_pec_id_seq"/>
+    </changeSet>
+    <changeSet author="dzuniga" id="1491957486053-14">
+        <createSequence catalogName="plantilla_db" schemaName="public" sequenceName="plantilla_esqueleto_pes_id_seq"/>
+    </changeSet>
+    <changeSet author="dzuniga" id="1491957486053-15">
+        <createSequence catalogName="plantilla_db" schemaName="public" sequenceName="plantilla_plantilla_id_seq"/>
+    </changeSet>
+    <changeSet author="dzuniga" id="1491957486053-16">
+        <createSequence catalogName="plantilla_db" schemaName="public" sequenceName="plantillaelementosustentolegal_pesustentolegal_id_seq"/>
+    </changeSet>
+    <changeSet author="dzuniga" id="1491957486053-17">
+        <createSequence catalogName="plantilla_db" schemaName="public" sequenceName="plantillatamaniohoja_pth_id_seq"/>
+    </changeSet>
+    <changeSet author="dzuniga" id="1491957486053-18">
+        <createSequence catalogName="plantilla_db" schemaName="public" sequenceName="plantillatipofuente_ptf_id_seq"/>
+    </changeSet>
+    <changeSet author="dzuniga" id="1491957486053-19">
+        <createSequence catalogName="plantilla_db" schemaName="public" sequenceName="plantillaunidadmedida_pum_id_seq"/>
+    </changeSet>
+    <changeSet author="dzuniga" id="1491957486053-20">
+        <createTable catalogName="plantilla_db" schemaName="public" tableName="catalogogeneral">
+            <column autoIncrement="true" name="cat_id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_catalogogeneral"/>
+            </column>
+            <column name="cat_codigo" remarks="Clave unica de identificacion del registro." type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="cat_descripcion" remarks="Descripcion detallada del resgistro." type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="cat_identidad" remarks="Identificador unico de relacion con la entidad." type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="cat_activo" remarks="Indicador del registro que controla la disponibilidad." type="BOOL">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="('now'::text)::date" name="cat_fecharegistro" remarks="Fecha en que se capturo el registro." type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="cat_salidahtml" remarks="Descripicion de uso para la salida en html." type="VARCHAR(200)"/>
+            <column name="cat_valor" remarks="Valor numerico para calculos." type="numeric(16, 4)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dzuniga" id="1491957486053-21">
+        <createTable catalogName="plantilla_db" schemaName="public" tableName="categoriacodigo">
+            <column autoIncrement="true" name="categoriacodigo_id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_categoriacodigo"/>
+            </column>
+            <column name="categoriacodigo_codigo" type="VARCHAR(25)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="categoriacodigo_descripcion" type="VARCHAR(150)"/>
+            <column name="categoriacodigo_salidahtml" type="VARCHAR(150)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="('now'::text)::date" name="categoriacodigo_fecharegistro" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="categoriacodigo_idusuarioregist" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dzuniga" id="1491957486053-22">
+        <createTable catalogName="plantilla_db" schemaName="public" tableName="categoriacodigoconfiguracion">
+            <column autoIncrement="true" name="catconfig_id" type="SERIAL">
+                <constraints nullable="false"/>
+            </column>
+            <column name="catconfig_idcategoriapadre" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="catconfig_idcategoriahijo" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="('now'::text)::date" name="catconfig_fecharegistro" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="catconfig_idusuarioregistro" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="dzuniga" id="1491957486053-23">
+        <createTable catalogName="plantilla_db" schemaName="public" tableName="clasificaciongeneralarchivos">
+            <column autoIncrement="true" name="cga_id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_clasificaciongeneralarchivo"/>
+            </column>
+            <column name="cga_codigo" remarks="Codigo que identifica el nivel de la categoria, separados por punto. El codigo debe de ser unico." type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="cga_nombre" remarks="Nombre general de la categoria." type="VARCHAR(150)"/>
+            <column name="cga_descripcion" remarks="Descripcion general de la clasificacion." type="VARCHAR(200)"/>
+            <column defaultValueComputed="('now'::text)::date" name="cga_fecharegistro" remarks="Fecha de registro." type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="cga_activo" remarks="Determina si el registro de clasificacion estaa activo. (1=Activo, 0=Inactivo)" type="BOOL">
+                <constraints nullable="false"/>
+            </column>
+            <column name="cga_idclasificacionpadre" remarks="Indica si el registro es subclasificacion. Pueden haber muchos subniveles," type="BIGINT"/>
+            <column defaultValueNumeric="1" name="cga_nivel" remarks="Nivel de la rama, cuando es nodo padre es nivel 1, en caso contrario sube al siguiente nivel del padre." type="numeric(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="cga_idusuariomodifica" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="('now'::text)::date" name="cga_fechaultimamodificacion" type="date"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dzuniga" id="1491957486053-24">
+        <createTable catalogName="plantilla_db" schemaName="public" tableName="codigolegal">
+            <column autoIncrement="true" name="codigolegal_id" type="SERIAL">
+                <constraints nullable="false"/>
+            </column>
+            <column name="codigolegal_idcategoriacodigo" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="codigolegal_nombrecorto" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="codigolegal_contenido" type="VARCHAR(1)"/>
+            <column name="codigolegal_idreferencia" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dzuniga" id="1491957486053-25">
+        <createTable catalogName="plantilla_db" schemaName="public" tableName="codigosistema">
+            <column autoIncrement="true" name="codigosist_id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_codigosistema"/>
+            </column>
+            <column name="codigosist_identidad" remarks="Identificador unico de la relacion con identidad." type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="codigosist_codigo" remarks="Codigo del sistema" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="codigosist_secuencia" remarks="Secuencia del codigo sistema" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="codigosist_estado" type="BOOL">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="('now'::text)::date" name="codigosist_fecharegistro" remarks="Fecha de registro del codigo del sistema." type="date">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="dzuniga" id="1491957486053-26">
+        <createTable catalogName="plantilla_db" schemaName="public" tableName="entidad">
+            <column autoIncrement="true" name="entidad_id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_entidad"/>
+            </column>
+            <column name="entidad_codigo" remarks="Clave unica de identificacion de la entidad." type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="entidad_tabla" remarks="Nombre de la entidad." type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="('now'::text)::date" name="entidad_fecharegistro" remarks="Fecha en que se capturo el registro." type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="entidad_modelo" remarks="Indicador de que el registro pertenece a una tabla del modelo." type="BOOL">
+                <constraints nullable="false"/>
+            </column>
+            <column name="entidad_salidahtml" remarks="Descripicion de uso para la salida en html." type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="dzuniga" id="1491957486053-27">
+        <createTable catalogName="plantilla_db" schemaName="public" tableName="entidadmapeo">
+            <column autoIncrement="true" name="entidadmapeo_id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_entidadmapeo"/>
+            </column>
+            <column name="entidadmapeo_codigo" remarks="Codigo para identificar y localizar una entidad de mapeo" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="entidadmapeo_descripcion" remarks="Descripcion de la entidad" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="entidadmapeo_salidahtml" remarks="Salida Html para visualizar desde la interfaz de usuario" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="entidadmapeo_package" remarks="Package al cual pertenece la entidad" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="entidadmapeo_classname" remarks="Class Name de la entidad en el modelo de Java" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="('now'::text)::date" name="entidadmapeo_fecharegistro" remarks="Fecha de registro" type="date">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="dzuniga" id="1491957486053-28">
+        <createTable catalogName="plantilla_db" schemaName="public" tableName="metadatauser">
+            <column autoIncrement="true" name="mu_id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_metadatauser"/>
+            </column>
+            <column name="mu_identidadagrupadora" remarks="Identificador principal como llave foranea hacia la tabla Entidad" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="mu_codigomapeo" remarks="Codigo del mapeo que permitira relacionar hacia el getter correspondiente para obtener el dato requerido por el procesador de texto." type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="mu_descripcion" remarks="Descripcion corta o larga que permite identificar que hace el campo o codigo de mapeo." type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="mu_valorbean" remarks="Getter que permite obtener un valor especificado en el DTO dinamico. Ex: getPersona().getNombreCompleto()" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="('now'::text)::date" name="mu_fecharegistro" remarks="Fecha de registro de control." type="date">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="dzuniga" id="1491957486053-29">
+        <createTable catalogName="plantilla_db" schemaName="public" tableName="plantilla">
+            <column autoIncrement="true" name="plantilla_id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="xpkplantilla"/>
+            </column>
+            <column name="plantilla_codigo" type="VARCHAR(50)"/>
+            <column name="plantilla_nombre" type="VARCHAR(100)"/>
+            <column name="plantilla_descripcion" type="VARCHAR(100)"/>
+            <column name="plantilla_identidadmapeo" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="plantilla_idclasificacion" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="plantilla_idconfiguracion" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="plantilla_activo" type="BOOL"/>
+            <column name="plantilla_idtipoplantilla" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="('now'::text)::date" name="plantilla_fecharegistro" type="date"/>
+            <column name="plantilla_idusuariomodifica" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="('now'::text)::date" name="plantilla_fechaultimamodificaci" type="date"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dzuniga" id="1491957486053-30">
+        <createTable catalogName="plantilla_db" schemaName="public" tableName="plantilla_catalogo_elementos">
+            <column autoIncrement="true" name="pce_id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_catalogo_elemento"/>
+            </column>
+            <column name="pce_codigo" type="VARCHAR(15)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="pce_valor" type="CHAR(1)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="pce_fecharegistro" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="pce_idtiposeccion" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="pce_idusuariomodifica" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="('now'::text)::date" name="pce_fechaultimamodificacion" type="date"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dzuniga" id="1491957486053-31">
+        <createTable catalogName="plantilla_db" schemaName="public" tableName="plantilla_configuracion">
+            <column autoIncrement="true" name="pc_id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="xpkplantilla_configuracion"/>
+            </column>
+            <column name="pc_codigo" type="VARCHAR(15)"/>
+            <column name="pc_orientacion" type="numeric(9, 2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="pc_tamaniofuente" type="numeric(5, 2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="pc_formato" type="VARCHAR(15)"/>
+            <column name="pc_copias" type="numeric(2)"/>
+            <column name="pc_margenderecho" type="numeric(9, 2)"/>
+            <column name="pc_margenizquierdo" type="numeric(9, 2)"/>
+            <column name="pc_margeninferior" type="numeric(9, 2)"/>
+            <column name="pc_margensuperior" type="numeric(9, 2)"/>
+            <column name="pc_default" type="BOOL"/>
+            <column name="pc_idtamaniohoja" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="pc_idunidadmedida" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="pc_idtipofuente" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="('now'::text)::date" name="pc_fecharegistro" type="date"/>
+            <column name="pc_idusuariomodifica" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="('now'::text)::date" name="pc_fechaultimamodificacion" type="date"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dzuniga" id="1491957486053-32">
+        <createTable catalogName="plantilla_db" schemaName="public" tableName="plantilla_elementos">
+            <column autoIncrement="true" name="pe_id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="xpkplantilla_elementos"/>
+            </column>
+            <column name="pe_valor" type="CHAR(1)"/>
+            <column name="pe_orden" type="BIGINT"/>
+            <column name="pe_idconfiguracion" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="pe_idelementoorigen" type="BIGINT"/>
+            <column defaultValueComputed="('now'::text)::date" name="pe_fecharegistro" type="date"/>
+            <column name="pe_idusuariomodifica" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="('now'::text)::date" name="pe_fechaultimamodificacion" type="date"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dzuniga" id="1491957486053-33">
+        <createTable catalogName="plantilla_db" schemaName="public" tableName="plantilla_esqueleto">
+            <column autoIncrement="true" name="pes_id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="xpkplantilla_esqueleto"/>
+            </column>
+            <column name="pes_orden" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="pes_etiquetaseccion" type="CHAR(1)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="pes_idtiposeccion" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="pes_idplantilla" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="pes_idconfiguracionorigen" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="pes_idtipoplantilla" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="('now'::text)::date" name="pes_fecharegistro" type="date"/>
+            <column name="pes_idusuariomodifica" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="('now'::text)::date" name="pes_fechaultimamodificacion" type="date"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dzuniga" id="1491957486053-34">
+        <createTable catalogName="plantilla_db" schemaName="public" tableName="plantilla_esqueleto_configuraci">
+            <column autoIncrement="true" name="pec_id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="xpkplantilla_esqueleto_configuracion"/>
+            </column>
+            <column name="pec_orden" type="BIGINT"/>
+            <column name="pec_idtiposeccion" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="pec_idtipoplantilla" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="('now'::text)::date" name="pec_fecharegistro" type="date"/>
+            <column name="pec_idusuariomodifica" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="('now'::text)::date" name="pec_fechaultimamodificacion" type="date"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dzuniga" id="1491957486053-35">
+        <createTable catalogName="plantilla_db" schemaName="public" tableName="plantillaelementosustentolegal">
+            <column autoIncrement="true" name="pesustentolegal_id" type="SERIAL">
+                <constraints nullable="false"/>
+            </column>
+            <column name="pesustentolegal_idcodigolegal" type="BIGINT"/>
+            <column name="pesustentolegal_idplantillacate" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dzuniga" id="1491957486053-36">
+        <createTable catalogName="plantilla_db" schemaName="public" tableName="plantillatamaniohoja">
+            <column autoIncrement="true" name="pth_id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk__plantill__eac3f02c6427437f"/>
+            </column>
+            <column name="pth_codigo" type="VARCHAR(15)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="pth_descripcion" type="VARCHAR(150)"/>
+            <column name="pth_salidahtml" type="VARCHAR(150)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="pth_custom" type="BOOL">
+                <constraints nullable="false"/>
+            </column>
+            <column name="pth_valorstatic" type="VARCHAR(50)"/>
+            <column name="pth_valorx" type="numeric(10)"/>
+            <column name="pth_valory" type="numeric(10)"/>
+            <column defaultValueComputed="('now'::text)::date" name="pth_fecharegistro" type="date">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="dzuniga" id="1491957486053-37">
+        <createTable catalogName="plantilla_db" schemaName="public" tableName="plantillatipofuente">
+            <column autoIncrement="true" name="ptf_id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk__plantill__fac5f0fa6db0adb9"/>
+            </column>
+            <column name="ptf_codigo" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ptf_descripcion" type="VARCHAR(150)"/>
+            <column name="ptf_salidahtml" type="VARCHAR(150)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ptf_rutafuente" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="('now'::text)::date" name="ptf_fecharegistro" type="date">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="dzuniga" id="1491957486053-38">
+        <createTable catalogName="plantilla_db" schemaName="public" tableName="plantillaunidadmedida">
+            <column autoIncrement="true" name="pum_id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk__plantill__7701fa8b68ebf89c"/>
+            </column>
+            <column name="pum_codigo" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="pum_descripcion" type="VARCHAR(150)"/>
+            <column name="pum_salidahtml" type="VARCHAR(150)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="pum_valor" type="numeric(20, 2)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="('now'::text)::date" name="pum_fecharegistro" type="date">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="dzuniga" id="1491957486053-39">
+        <addUniqueConstraint catalogName="plantilla_db" columnNames="codigosist_codigo" constraintName="ak_codigo" schemaName="public" tableName="codigosistema"/>
+    </changeSet>
+    <changeSet author="dzuniga" id="1491957486053-40">
+        <addUniqueConstraint catalogName="plantilla_db" columnNames="cat_codigo" constraintName="iuq_cat_codigo" schemaName="public" tableName="catalogogeneral"/>
+    </changeSet>
+    <changeSet author="dzuniga" id="1491957486053-41">
+        <createIndex catalogName="plantilla_db" indexName="idx_entidadmapeo_codigo" schemaName="public" tableName="entidadmapeo">
+            <column name="entidadmapeo_codigo"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="dzuniga" id="1491957486053-42">
+        <createIndex catalogName="plantilla_db" indexName="idx_uq_cod_cag" schemaName="public" tableName="clasificaciongeneralarchivos" unique="true">
+            <column name="cga_codigo"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="dzuniga" id="1491957486053-43">
+        <createIndex catalogName="plantilla_db" indexName="iuq_entidad_codigo" schemaName="public" tableName="entidad" unique="true">
+            <column name="entidad_codigo"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="dzuniga" id="1491957486053-44">
+        <createIndex catalogName="plantilla_db" indexName="pk_categoriacodigoconfiguracion" schemaName="public" tableName="categoriacodigoconfiguracion" unique="true">
+            <column name="catconfig_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="dzuniga" id="1491957486053-45">
+        <createIndex catalogName="plantilla_db" indexName="pk_codigolegal" schemaName="public" tableName="codigolegal" unique="true">
+            <column name="codigolegal_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="dzuniga" id="1491957486053-46">
+        <createIndex catalogName="plantilla_db" indexName="pk_plantillaelementosustentoleg" schemaName="public" tableName="plantillaelementosustentolegal" unique="true">
+            <column name="pesustentolegal_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="dzuniga" id="1491957486053-47">
+        <addForeignKeyConstraint baseColumnNames="cat_identidad" baseTableCatalogName="plantilla_db" baseTableName="catalogogeneral" baseTableSchemaName="public" constraintName="fk_cat_entidad_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="entidad_id" referencedTableCatalogName="plantilla_db" referencedTableName="entidad" referencedTableSchemaName="public"/>
+    </changeSet>
+    <changeSet author="dzuniga" id="1491957486053-48">
+        <addForeignKeyConstraint baseColumnNames="pce_idtiposeccion" baseTableCatalogName="plantilla_db" baseTableName="plantilla_catalogo_elementos" baseTableSchemaName="public" constraintName="fk_catalogo_elementos_pt_tpsec" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="cat_id" referencedTableCatalogName="plantilla_db" referencedTableName="catalogogeneral" referencedTableSchemaName="public"/>
+    </changeSet>
+    <changeSet author="dzuniga" id="1491957486053-49">
+        <addForeignKeyConstraint baseColumnNames="catconfig_idcategoriapadre" baseTableCatalogName="plantilla_db" baseTableName="categoriacodigoconfiguracion" baseTableSchemaName="public" constraintName="fk_categoriacodigoconfiguracion_categoriacodigo" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="categoriacodigo_id" referencedTableCatalogName="plantilla_db" referencedTableName="categoriacodigo" referencedTableSchemaName="public"/>
+    </changeSet>
+    <changeSet author="dzuniga" id="1491957486053-50">
+        <addForeignKeyConstraint baseColumnNames="catconfig_idcategoriahijo" baseTableCatalogName="plantilla_db" baseTableName="categoriacodigoconfiguracion" baseTableSchemaName="public" constraintName="fk_categoriacodigoconfiguracion_categoriacodigo1" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="categoriacodigo_id" referencedTableCatalogName="plantilla_db" referencedTableName="categoriacodigo" referencedTableSchemaName="public"/>
+    </changeSet>
+    <changeSet author="dzuniga" id="1491957486053-51">
+        <addForeignKeyConstraint baseColumnNames="cga_idclasificacionpadre" baseTableCatalogName="plantilla_db" baseTableName="clasificaciongeneralarchivos" baseTableSchemaName="public" constraintName="fk_clasific_fk_clasif_clasific" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="cga_id" referencedTableCatalogName="plantilla_db" referencedTableName="clasificaciongeneralarchivos" referencedTableSchemaName="public"/>
+    </changeSet>
+    <changeSet author="dzuniga" id="1491957486053-52">
+        <addForeignKeyConstraint baseColumnNames="codigolegal_idcategoriacodigo" baseTableCatalogName="plantilla_db" baseTableName="codigolegal" baseTableSchemaName="public" constraintName="fk_codigolegal_categoriacodigo" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="categoriacodigo_id" referencedTableCatalogName="plantilla_db" referencedTableName="categoriacodigo" referencedTableSchemaName="public"/>
+    </changeSet>
+    <changeSet author="dzuniga" id="1491957486053-53">
+        <addForeignKeyConstraint baseColumnNames="codigolegal_idreferencia" baseTableCatalogName="plantilla_db" baseTableName="codigolegal" baseTableSchemaName="public" constraintName="fk_codigolegal_codigolegal" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="codigolegal_id" referencedTableCatalogName="plantilla_db" referencedTableName="codigolegal" referencedTableSchemaName="public"/>
+    </changeSet>
+    <changeSet author="dzuniga" id="1491957486053-54">
+        <addForeignKeyConstraint baseColumnNames="codigosist_identidad" baseTableCatalogName="plantilla_db" baseTableName="codigosistema" baseTableSchemaName="public" constraintName="fk_codigosist_entidad_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="entidad_id" referencedTableCatalogName="plantilla_db" referencedTableName="entidad" referencedTableSchemaName="public"/>
+    </changeSet>
+    <changeSet author="dzuniga" id="1491957486053-55">
+        <addForeignKeyConstraint baseColumnNames="pe_idconfiguracion" baseTableCatalogName="plantilla_db" baseTableName="plantilla_elementos" baseTableSchemaName="public" constraintName="fk_configesqueleto" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="pes_id" referencedTableCatalogName="plantilla_db" referencedTableName="plantilla_esqueleto" referencedTableSchemaName="public"/>
+    </changeSet>
+    <changeSet author="dzuniga" id="1491957486053-56">
+        <addForeignKeyConstraint baseColumnNames="mu_identidadagrupadora" baseTableCatalogName="plantilla_db" baseTableName="metadatauser" baseTableSchemaName="public" constraintName="fk_metadata_id_entidad" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="entidadmapeo_id" referencedTableCatalogName="plantilla_db" referencedTableName="entidadmapeo" referencedTableSchemaName="public"/>
+    </changeSet>
+    <changeSet author="dzuniga" id="1491957486053-57">
+        <addForeignKeyConstraint baseColumnNames="pe_idelementoorigen" baseTableCatalogName="plantilla_db" baseTableName="plantilla_elementos" baseTableSchemaName="public" constraintName="fk_pe_idelementos" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="pce_id" referencedTableCatalogName="plantilla_db" referencedTableName="plantilla_catalogo_elementos" referencedTableSchemaName="public"/>
+    </changeSet>
+    <changeSet author="dzuniga" id="1491957486053-58">
+        <addForeignKeyConstraint baseColumnNames="pes_idconfiguracionorigen" baseTableCatalogName="plantilla_db" baseTableName="plantilla_esqueleto" baseTableSchemaName="public" constraintName="fk_pes_idusuario" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="pec_id" referencedTableCatalogName="plantilla_db" referencedTableName="plantilla_esqueleto_configuraci" referencedTableSchemaName="public"/>
+    </changeSet>
+    <changeSet author="dzuniga" id="1491957486053-59">
+        <addForeignKeyConstraint baseColumnNames="plantilla_idclasificacion" baseTableCatalogName="plantilla_db" baseTableName="plantilla" baseTableSchemaName="public" constraintName="fk_plantilla_clasificacion" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="cga_id" referencedTableCatalogName="plantilla_db" referencedTableName="clasificaciongeneralarchivos" referencedTableSchemaName="public"/>
+    </changeSet>
+    <changeSet author="dzuniga" id="1491957486053-60">
+        <addForeignKeyConstraint baseColumnNames="plantilla_idconfiguracion" baseTableCatalogName="plantilla_db" baseTableName="plantilla" baseTableSchemaName="public" constraintName="fk_plantilla_configuracion" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="pc_id" referencedTableCatalogName="plantilla_db" referencedTableName="plantilla_configuracion" referencedTableSchemaName="public"/>
+    </changeSet>
+    <changeSet author="dzuniga" id="1491957486053-61">
+        <addForeignKeyConstraint baseColumnNames="pc_idtamaniohoja" baseTableCatalogName="plantilla_db" baseTableName="plantilla_configuracion" baseTableSchemaName="public" constraintName="fk_plantilla_configuracion_tamaniohoja" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="pth_id" referencedTableCatalogName="plantilla_db" referencedTableName="plantillatamaniohoja" referencedTableSchemaName="public"/>
+    </changeSet>
+    <changeSet author="dzuniga" id="1491957486053-62">
+        <addForeignKeyConstraint baseColumnNames="pc_idtipofuente" baseTableCatalogName="plantilla_db" baseTableName="plantilla_configuracion" baseTableSchemaName="public" constraintName="fk_plantilla_configuracion_tipofuente" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ptf_id" referencedTableCatalogName="plantilla_db" referencedTableName="plantillatipofuente" referencedTableSchemaName="public"/>
+    </changeSet>
+    <changeSet author="dzuniga" id="1491957486053-63">
+        <addForeignKeyConstraint baseColumnNames="pc_idunidadmedida" baseTableCatalogName="plantilla_db" baseTableName="plantilla_configuracion" baseTableSchemaName="public" constraintName="fk_plantilla_configuracion_unidadmedida" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="pum_id" referencedTableCatalogName="plantilla_db" referencedTableName="plantillaunidadmedida" referencedTableSchemaName="public"/>
+    </changeSet>
+    <changeSet author="dzuniga" id="1491957486053-64">
+        <addForeignKeyConstraint baseColumnNames="plantilla_identidadmapeo" baseTableCatalogName="plantilla_db" baseTableName="plantilla" baseTableSchemaName="public" constraintName="fk_plantilla_entidadmapeo" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="entidadmapeo_id" referencedTableCatalogName="plantilla_db" referencedTableName="entidadmapeo" referencedTableSchemaName="public"/>
+    </changeSet>
+    <changeSet author="dzuniga" id="1491957486053-65">
+        <addForeignKeyConstraint baseColumnNames="pec_idtipoplantilla" baseTableCatalogName="plantilla_db" baseTableName="plantilla_esqueleto_configuraci" baseTableSchemaName="public" constraintName="fk_plantilla_esqueleto_config_tpp" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="cat_id" referencedTableCatalogName="plantilla_db" referencedTableName="catalogogeneral" referencedTableSchemaName="public"/>
+    </changeSet>
+    <changeSet author="dzuniga" id="1491957486053-66">
+        <addForeignKeyConstraint baseColumnNames="pec_idtiposeccion" baseTableCatalogName="plantilla_db" baseTableName="plantilla_esqueleto_configuraci" baseTableSchemaName="public" constraintName="fk_plantilla_esqueleto_config_tsec" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="cat_id" referencedTableCatalogName="plantilla_db" referencedTableName="catalogogeneral" referencedTableSchemaName="public"/>
+    </changeSet>
+    <changeSet author="dzuniga" id="1491957486053-67">
+        <addForeignKeyConstraint baseColumnNames="pes_idtiposeccion" baseTableCatalogName="plantilla_db" baseTableName="plantilla_esqueleto" baseTableSchemaName="public" constraintName="fk_plantilla_esqueleto_tiposeccion" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="cat_id" referencedTableCatalogName="plantilla_db" referencedTableName="catalogogeneral" referencedTableSchemaName="public"/>
+    </changeSet>
+    <changeSet author="dzuniga" id="1491957486053-68">
+        <addForeignKeyConstraint baseColumnNames="plantilla_idtipoplantilla" baseTableCatalogName="plantilla_db" baseTableName="plantilla" baseTableSchemaName="public" constraintName="fk_plantilla_tipoplantilla" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="cat_id" referencedTableCatalogName="plantilla_db" referencedTableName="catalogogeneral" referencedTableSchemaName="public"/>
+    </changeSet>
+    <changeSet author="dzuniga" id="1491957486053-69">
+        <addForeignKeyConstraint baseColumnNames="pesustentolegal_idcodigolegal" baseTableCatalogName="plantilla_db" baseTableName="plantillaelementosustentolegal" baseTableSchemaName="public" constraintName="fk_plantillaelementosustentolegal_codigolegal" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="codigolegal_id" referencedTableCatalogName="plantilla_db" referencedTableName="codigolegal" referencedTableSchemaName="public"/>
+    </changeSet>
+    <changeSet author="dzuniga" id="1491957486053-70">
+        <addForeignKeyConstraint baseColumnNames="pesustentolegal_idplantillacate" baseTableCatalogName="plantilla_db" baseTableName="plantillaelementosustentolegal" baseTableSchemaName="public" constraintName="fk_plantillaelementosustentolegal_plantilla_cat_elementos" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="pce_id" referencedTableCatalogName="plantilla_db" referencedTableName="plantilla_catalogo_elementos" referencedTableSchemaName="public"/>
+    </changeSet>
+    <changeSet author="dzuniga" id="1491957486053-71">
+        <addForeignKeyConstraint baseColumnNames="pes_idplantilla" baseTableCatalogName="plantilla_db" baseTableName="plantilla_esqueleto" baseTableSchemaName="public" constraintName="fk_plantillaesqueleto_plantilla" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="plantilla_id" referencedTableCatalogName="plantilla_db" referencedTableName="plantilla" referencedTableSchemaName="public"/>
+    </changeSet>
+</databaseChangeLog>

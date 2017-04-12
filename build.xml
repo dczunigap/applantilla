@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="sia-ceres-database"
+         xmlns:liquibase="antlib:liquibase.integration.ant"
+         default="01-dbInit">
+
+    <!-- Propiedades del archivo -->
+    <property name="baseResources" value="${basedir}/src/main/resources" />
+    <property name="default.environment" value="application"/>
+
+    <condition property="environment" value="${environment}" else="${default.environment}">
+        <isset property="environment"/>
+    </condition>
+
+    <tstamp>
+        <format property="TODAY_MY" pattern="yyyyMMdd-HHmmss" locale="es,MX" />
+    </tstamp>
+
+    <loadproperties srcfile="${baseResources}/${environment}.properties"/>
+    <property name="dbRestore" value="${baseResources}/db/master-changelog.xml"/>
+
+    <path id="lib.path" >
+        <fileset dir="lib">
+            <include name="**/*.jar"/>
+        </fileset>
+    </path>
+
+    <taskdef resource="liquibase/integration/ant/antlib.xml" uri="antlib:liquibase.integration.ant" classpathref="lib.path"/>
+
+    <target name="01-dbInit" description="Limpia la base de datos y carga solamente los catalgos iniciales de opetaciòn.">
+        <echo message="Conectandose al entorno de ${environment} [${spring.datasource.url}] para dropear las tablas, aplicar actualizaciones e insertar catalogos base."/>
+        <liquibase:dropAllDatabaseObjects loglevel="off">
+            <liquibase:database driver="${spring.datasource.driver-class-name}"
+                                url="${spring.datasource.url}"
+                                user="${spring.datasource.username}"
+                                password="${spring.datasource.password}"/>
+        </liquibase:dropAllDatabaseObjects>
+        <liquibase:updateDatabase changelogfile="${dbRestore}">
+            <liquibase:database driver="${spring.datasource.driver-class-name}"
+                                url="${spring.datasource.url}"
+                                user="${spring.datasource.username}"
+                                password="${spring.datasource.password}"/>
+        </liquibase:updateDatabase>
+    </target>
+
+    <!-- Quitar los comentarios para poder generar el archivo de reestructuracion de DB, y eliminar los changelogs acumulados -->
+    <target name="generateChangeLog" description="Generacion de los archivos de init">
+        <echo message="Conectandose al entorno de ${environment} [${spring.datasource.url}] para generar el esquema inicial."/>
+        <liquibase:generateChangeLog>
+            <liquibase:database driver="${spring.datasource.driver-class-name}"
+                                url="${spring.datasource.url}"
+                                user="${spring.datasource.username}"
+                                password="${spring.datasource.password}" />
+            <liquibase:xml outputFile="${baseResources}/db/initdatabase/init_schemadb.xml"/>
+        </liquibase:generateChangeLog>
+    </target>
+</project>
