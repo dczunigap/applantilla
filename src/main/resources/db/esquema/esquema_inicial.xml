@@ -71,10 +71,10 @@
             <column name="cat_identidad" remarks="Identificador unico de relacion con la entidad." type="BIGINT">
                 <constraints nullable="false"/>
             </column>
-            <column name="cat_activo" remarks="Indicador del registro que controla la disponibilidad." type="BOOL">
+            <column name="cat_activo" remarks="Indicador del registro que controla la disponibilidad." type="bit">
                 <constraints nullable="false"/>
             </column>
-            <column defaultValueComputed="('now'::text)::date" name="cat_fecharegistro" remarks="Fecha en que se capturo el registro." type="date">
+            <column defaultValueComputed="('now'::text)::date" name="cat_fecharegistro" remarks="Fecha en que se capturo el registro." type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
             <column name="cat_salidahtml" remarks="Descripicion de uso para la salida en html." type="VARCHAR(200)"/>
@@ -93,7 +93,7 @@
             <column name="categoriacodigo_salidahtml" type="VARCHAR(150)">
                 <constraints nullable="false"/>
             </column>
-            <column defaultValueComputed="('now'::text)::date" name="categoriacodigo_fecharegistro" type="date">
+            <column defaultValueComputed="('now'::text)::date" name="categoriacodigo_fecharegistro" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
             <!--<column name="categoriacodigo_idusuarioregist" type="BIGINT"/>-->
@@ -110,7 +110,7 @@
             <column name="catconfig_idcategoriahijo" type="BIGINT">
                 <constraints nullable="false"/>
             </column>
-            <column defaultValueComputed="('now'::text)::date" name="catconfig_fecharegistro" type="date">
+            <column defaultValueComputed="('now'::text)::date" name="catconfig_fecharegistro" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
             <!--<column name="catconfig_idusuarioregistro" type="BIGINT">
@@ -128,10 +128,10 @@
             </column>
             <column name="cga_nombre" remarks="Nombre general de la categoria." type="VARCHAR(150)"/>
             <column name="cga_descripcion" remarks="Descripcion general de la clasificacion." type="VARCHAR(200)"/>
-            <column defaultValueComputed="('now'::text)::date" name="cga_fecharegistro" remarks="Fecha de registro." type="date">
+            <column defaultValueComputed="('now'::text)::date" name="cga_fecharegistro" remarks="Fecha de registro." type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
-            <column name="cga_activo" remarks="Determina si el registro de clasificacion estaa activo. (1=Activo, 0=Inactivo)" type="BOOL">
+            <column name="cga_activo" remarks="Determina si el registro de clasificacion estaa activo. (1=Activo, 0=Inactivo)" type="bit">
                 <constraints nullable="false"/>
             </column>
             <column name="cga_idclasificacionpadre" remarks="Indica si el registro es subclasificacion. Pueden haber muchos subniveles," type="BIGINT"/>
@@ -141,7 +141,7 @@
             <!--<column name="cga_idusuariomodifica" type="BIGINT">
                 <constraints nullable="false"/>
             </column>-->
-            <column defaultValueComputed="('now'::text)::date" name="cga_fechaultimamodificacion" type="date"/>
+            <column defaultValueComputed="('now'::text)::date" name="cga_fechaultimamodificacion" type="TIMESTAMP"/>
         </createTable>
     </changeSet>
     <changeSet author="dzuniga" id="1491957486053-24">
@@ -173,10 +173,10 @@
             <column name="codigosist_secuencia" remarks="Secuencia del codigo sistema" type="BIGINT">
                 <constraints nullable="false"/>
             </column>
-            <column name="codigosist_estado" type="BOOL">
+            <column name="codigosist_estado" type="bit">
                 <constraints nullable="false"/>
             </column>
-            <column defaultValueComputed="('now'::text)::date" name="codigosist_fecharegistro" remarks="Fecha de registro del codigo del sistema." type="date">
+            <column defaultValueComputed="('now'::text)::date" name="codigosist_fecharegistro" remarks="Fecha de registro del codigo del sistema." type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
         </createTable>
@@ -192,10 +192,10 @@
             <column name="entidad_tabla" remarks="Nombre de la entidad." type="VARCHAR(100)">
                 <constraints nullable="false"/>
             </column>
-            <column defaultValueComputed="('now'::text)::date" name="entidad_fecharegistro" remarks="Fecha en que se capturo el registro." type="date">
+            <column defaultValueComputed="('now'::text)::date" name="entidad_fecharegistro" remarks="Fecha en que se capturo el registro." type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
-            <column name="entidad_modelo" remarks="Indicador de que el registro pertenece a una tabla del modelo." type="BOOL">
+            <column name="entidad_modelo" remarks="Indicador de que el registro pertenece a una tabla del modelo." type="bit">
                 <constraints nullable="false"/>
             </column>
             <column name="entidad_salidahtml" remarks="Descripicion de uso para la salida en html." type="VARCHAR(50)">
@@ -223,7 +223,7 @@
             <column name="entidadmapeo_classname" remarks="Class Name de la entidad en el modelo de Java" type="VARCHAR(100)">
                 <constraints nullable="false"/>
             </column>
-            <column defaultValueComputed="('now'::text)::date" name="entidadmapeo_fecharegistro" remarks="Fecha de registro" type="date">
+            <column defaultValueComputed="('now'::text)::date" name="entidadmapeo_fecharegistro" remarks="Fecha de registro" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
         </createTable>
@@ -245,7 +245,7 @@
             <column name="mu_valorbean" remarks="Getter que permite obtener un valor especificado en el DTO dinamico. Ex: getPersona().getNombreCompleto()" type="VARCHAR(200)">
                 <constraints nullable="false"/>
             </column>
-            <column defaultValueComputed="('now'::text)::date" name="mu_fecharegistro" remarks="Fecha de registro de control." type="date">
+            <column defaultValueComputed="('now'::text)::date" name="mu_fecharegistro" remarks="Fecha de registro de control." type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
         </createTable>
@@ -267,15 +267,15 @@
             <column name="plantilla_idconfiguracion" type="BIGINT">
                 <constraints nullable="false"/>
             </column>
-            <column name="plantilla_activo" type="BOOL"/>
+            <column name="plantilla_activo" type="bit"/>
             <column name="plantilla_idtipoplantilla" type="BIGINT">
                 <constraints nullable="false"/>
             </column>
-            <column defaultValueComputed="('now'::text)::date" name="plantilla_fecharegistro" type="date"/>
+            <column defaultValueComputed="('now'::text)::date" name="plantilla_fecharegistro" type="TIMESTAMP"/>
             <!--<column name="plantilla_idusuariomodifica" type="BIGINT">
                 <constraints nullable="false"/>
             </column>-->
-            <column defaultValueComputed="('now'::text)::date" name="plantilla_fechaultimamodificaci" type="date"/>
+            <column defaultValueComputed="('now'::text)::date" name="plantilla_fechaultimamodificaci" type="TIMESTAMP"/>
         </createTable>
     </changeSet>
     <changeSet author="dzuniga" id="1491957486053-30">
@@ -289,7 +289,7 @@
             <column name="pce_valor" type="TEXT">
                 <constraints nullable="false"/>
             </column>
-            <column name="pce_fecharegistro" type="date">
+            <column name="pce_fecharegistro" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
             <column name="pce_idtiposeccion" type="BIGINT">
@@ -298,7 +298,7 @@
             <!--<column name="pce_idusuariomodifica" type="BIGINT">
                 <constraints nullable="false"/>
             </column>-->
-            <column defaultValueComputed="('now'::text)::date" name="pce_fechaultimamodificacion" type="date"/>
+            <column defaultValueComputed="('now'::text)::date" name="pce_fechaultimamodificacion" type="TIMESTAMP"/>
         </createTable>
     </changeSet>
     <changeSet author="dzuniga" id="1491957486053-31">
@@ -319,7 +319,7 @@
             <column name="pc_margenizquierdo" type="numeric(9, 2)"/>
             <column name="pc_margeninferior" type="numeric(9, 2)"/>
             <column name="pc_margensuperior" type="numeric(9, 2)"/>
-            <column name="pc_default" type="BOOL"/>
+            <column name="pc_default" type="bit"/>
             <column name="pc_idtamaniohoja" type="BIGINT">
                 <constraints nullable="false"/>
             </column>
@@ -329,11 +329,11 @@
             <column name="pc_idtipofuente" type="BIGINT">
                 <constraints nullable="false"/>
             </column>
-            <column defaultValueComputed="('now'::text)::date" name="pc_fecharegistro" type="date"/>
+            <column defaultValueComputed="('now'::text)::date" name="pc_fecharegistro" type="TIMESTAMP"/>
             <!--<column name="pc_idusuariomodifica" type="BIGINT">
                 <constraints nullable="false"/>
             </column>-->
-            <column defaultValueComputed="('now'::text)::date" name="pc_fechaultimamodificacion" type="date"/>
+            <column defaultValueComputed="('now'::text)::date" name="pc_fechaultimamodificacion" type="TIMESTAMP"/>
         </createTable>
     </changeSet>
     <changeSet author="dzuniga" id="1491957486053-32">
@@ -347,11 +347,11 @@
                 <constraints nullable="false"/>
             </column>
             <column name="pe_idelementoorigen" type="BIGINT"/>
-            <column defaultValueComputed="('now'::text)::date" name="pe_fecharegistro" type="date"/>
+            <column defaultValueComputed="('now'::text)::date" name="pe_fecharegistro" type="TIMESTAMP"/>
             <!--<column name="pe_idusuariomodifica" type="BIGINT">
                 <constraints nullable="false"/>
             </column>-->
-            <column defaultValueComputed="('now'::text)::date" name="pe_fechaultimamodificacion" type="date"/>
+            <column defaultValueComputed="('now'::text)::date" name="pe_fechaultimamodificacion" type="TIMESTAMP"/>
         </createTable>
     </changeSet>
     <changeSet author="dzuniga" id="1491957486053-33">
@@ -377,11 +377,11 @@
             <column name="pes_idtipoplantilla" type="BIGINT">
                 <constraints nullable="false"/>
             </column>
-            <column defaultValueComputed="('now'::text)::date" name="pes_fecharegistro" type="date"/>
+            <column defaultValueComputed="('now'::text)::date" name="pes_fecharegistro" type="TIMESTAMP"/>
             <!--<column name="pes_idusuariomodifica" type="BIGINT">
                 <constraints nullable="false"/>
             </column>-->
-            <column defaultValueComputed="('now'::text)::date" name="pes_fechaultimamodificacion" type="date"/>
+            <column defaultValueComputed="('now'::text)::date" name="pes_fechaultimamodificacion" type="TIMESTAMP"/>
         </createTable>
     </changeSet>
     <changeSet author="dzuniga" id="1491957486053-34">
@@ -396,11 +396,11 @@
             <column name="pec_idtipoplantilla" type="BIGINT">
                 <constraints nullable="false"/>
             </column>
-            <column defaultValueComputed="('now'::text)::date" name="pec_fecharegistro" type="date"/>
+            <column defaultValueComputed="('now'::text)::date" name="pec_fecharegistro" type="TIMESTAMP"/>
             <!--<column name="pec_idusuariomodifica" type="BIGINT">
                 <constraints nullable="false"/>
             </column>-->
-            <column defaultValueComputed="('now'::text)::date" name="pec_fechaultimamodificacion" type="date"/>
+            <column defaultValueComputed="('now'::text)::date" name="pec_fechaultimamodificacion" type="TIMESTAMP"/>
         </createTable>
     </changeSet>
     <changeSet author="dzuniga" id="1491957486053-35">
@@ -424,13 +424,13 @@
             <column name="pth_salidahtml" type="VARCHAR(150)">
                 <constraints nullable="false"/>
             </column>
-            <column name="pth_custom" type="BOOL">
+            <column name="pth_custom" type="bit">
                 <constraints nullable="false"/>
             </column>
             <column name="pth_valorstatic" type="VARCHAR(50)"/>
             <column name="pth_valorx" type="numeric(10)"/>
             <column name="pth_valory" type="numeric(10)"/>
-            <column defaultValueComputed="('now'::text)::date" name="pth_fecharegistro" type="date">
+            <column defaultValueComputed="('now'::text)::date" name="pth_fecharegistro" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
         </createTable>
@@ -450,7 +450,7 @@
             <column name="ptf_rutafuente" type="VARCHAR(200)">
                 <constraints nullable="false"/>
             </column>
-            <column defaultValueComputed="('now'::text)::date" name="ptf_fecharegistro" type="date">
+            <column defaultValueComputed="('now'::text)::date" name="ptf_fecharegistro" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
         </createTable>
@@ -470,7 +470,7 @@
             <column name="pum_valor" type="numeric(20, 2)">
                 <constraints nullable="false"/>
             </column>
-            <column defaultValueComputed="('now'::text)::date" name="pum_fecharegistro" type="date">
+            <column defaultValueComputed="('now'::text)::date" name="pum_fecharegistro" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
         </createTable>

@@ -5,28 +5,28 @@
             <column name="ENTIDAD_CODIGO" value="TIPOANEXO"/>
             <column name="ENTIDAD_TABLA" value="Tipos de anexo"/>
             <column name="ENTIDAD_FECHAREGISTRO" valueComputed="(SELECT NOW())"/>
-            <column name="ENTIDAD_MODELO" valueBoolean="false"/>
+            <column name="ENTIDAD_MODELO" value="0"/>
             <column name="ENTIDAD_SALIDAHTML" value="Tipo anexo"/>
         </insert>
         <insert tableName="ENTIDAD">
             <column name="ENTIDAD_CODIGO" value="TIPOSECCION"/>
             <column name="ENTIDAD_TABLA" value="Tipos de seccion"/>
             <column name="ENTIDAD_FECHAREGISTRO" valueComputed="(SELECT NOW())"/>
-            <column name="ENTIDAD_MODELO" valueBoolean="false"/>
+            <column name="ENTIDAD_MODELO" value="0"/>
             <column name="ENTIDAD_SALIDAHTML" value="Tipo sección"/>
         </insert>
         <insert tableName="ENTIDAD">
             <column name="ENTIDAD_CODIGO" value="TIPOPLANTILLA"/>
             <column name="ENTIDAD_TABLA" value="Tipos de plantilla"/>
             <column name="ENTIDAD_FECHAREGISTRO" valueComputed="(SELECT NOW())"/>
-            <column name="ENTIDAD_MODELO" valueBoolean="false"/>
+            <column name="ENTIDAD_MODELO" value="0"/>
             <column name="ENTIDAD_SALIDAHTML" value="Tipo plantilla"/>
         </insert>
         <insert tableName="CATALOGOGENERAL">
             <column name="CAT_CODIGO" value="SECC_PROEMIO"/>
             <column name="CAT_DESCRIPCION" value="Tipo de sección proemio"/>
             <column name="CAT_IDENTIDAD" valueComputed="(SELECT ENTIDAD_ID FROM ENTIDAD WHERE ENTIDAD_CODIGO = 'TIPOSECCION')"/>
-            <column name="CAT_ACTIVO" valueBoolean="true"/>
+            <column name="CAT_ACTIVO" value="1"/>
             <column name="CAT_FECHAREGISTRO" valueComputed="(SELECT NOW())"/>
             <column name="CAT_SALIDAHTML" value="Proemio"/>
             <column name="CAT_VALOR"/>
@@ -35,7 +35,7 @@
             <column name="CAT_CODIGO" value="SECC_ANTECEDENTE"/>
             <column name="CAT_DESCRIPCION" value="Tipo de sección antecedente"/>
             <column name="CAT_IDENTIDAD" valueComputed="(SELECT ENTIDAD_ID FROM ENTIDAD WHERE ENTIDAD_CODIGO = 'TIPOSECCION')"/>
-            <column name="CAT_ACTIVO" valueBoolean="true"/>
+            <column name="CAT_ACTIVO" value="1"/>
             <column name="CAT_FECHAREGISTRO" valueComputed="(SELECT NOW())"/>
             <column name="CAT_SALIDAHTML" value="Antecedente"/>
             <column name="CAT_VALOR"/>
@@ -44,7 +44,7 @@
             <column name="CAT_CODIGO" value="SECC_DECLARACION"/>
             <column name="CAT_DESCRIPCION" value="Tipo de sección declaración"/>
             <column name="CAT_IDENTIDAD" valueComputed="(SELECT ENTIDAD_ID FROM ENTIDAD WHERE ENTIDAD_CODIGO = 'TIPOSECCION')"/>
-            <column name="CAT_ACTIVO" valueBoolean="true"/>
+            <column name="CAT_ACTIVO" value="1"/>
             <column name="CAT_FECHAREGISTRO" valueComputed="(SELECT NOW())"/>
             <column name="CAT_SALIDAHTML" value="Declaración"/>
             <column name="CAT_VALOR"/>
@@ -53,7 +53,7 @@
             <column name="CAT_CODIGO" value="SECC_CLAUSULA"/>
             <column name="CAT_DESCRIPCION" value="Tipo de sección clausula"/>
             <column name="CAT_IDENTIDAD" valueComputed="(SELECT ENTIDAD_ID FROM ENTIDAD WHERE ENTIDAD_CODIGO = 'TIPOSECCION')"/>
-            <column name="CAT_ACTIVO" valueBoolean="true"/>
+            <column name="CAT_ACTIVO" value="1"/>
             <column name="CAT_FECHAREGISTRO" valueComputed="(SELECT NOW())"/>
             <column name="CAT_SALIDAHTML" value="Clasula"/>
             <column name="CAT_VALOR"/>
@@ -62,7 +62,7 @@
             <column name="CAT_CODIGO" value="SECC_ANEXO"/>
             <column name="CAT_DESCRIPCION" value="Tipo de sección anexo"/>
             <column name="CAT_IDENTIDAD" valueComputed="(SELECT ENTIDAD_ID FROM ENTIDAD WHERE ENTIDAD_CODIGO = 'TIPOSECCION')"/>
-            <column name="CAT_ACTIVO" valueBoolean="true"/>
+            <column name="CAT_ACTIVO" value="1"/>
             <column name="CAT_FECHAREGISTRO" valueComputed="(SELECT NOW())"/>
             <column name="CAT_SALIDAHTML" value="Anexo"/>
             <column name="CAT_VALOR"/>
@@ -71,7 +71,7 @@
             <column name="CAT_CODIGO" value="PLANT_CONTRATOAFEC"/>
             <column name="CAT_DESCRIPCION" value="Tipo de plantilla contrato afectación"/>
             <column name="CAT_IDENTIDAD" valueComputed="(SELECT ENTIDAD_ID FROM ENTIDAD WHERE ENTIDAD_CODIGO = 'TIPOPLANTILLA')"/>
-            <column name="CAT_ACTIVO" valueBoolean="true"/>
+            <column name="CAT_ACTIVO" value="1"/>
             <column name="CAT_FECHAREGISTRO" valueComputed="(SELECT NOW())"/>
             <column name="CAT_SALIDAHTML" value="Contrato afectación"/>
             <column name="CAT_VALOR"/>
@@ -80,7 +80,7 @@
             <column name="CAT_CODIGO" value="PLANT_CONTRATO"/>
             <column name="CAT_DESCRIPCION" value="Tipo de reporte como contrato"/>
             <column name="CAT_IDENTIDAD" valueComputed="(SELECT ENTIDAD_ID FROM ENTIDAD WHERE ENTIDAD_CODIGO = 'TIPOPLANTILLA')"/>
-            <column name="CAT_ACTIVO" valueBoolean="true"/>
+            <column name="CAT_ACTIVO" value="1"/>
             <column name="CAT_FECHAREGISTRO" valueComputed="(SELECT NOW())"/>
             <column name="CAT_SALIDAHTML" value="Reporte contrato"/>
             <column name="CAT_VALOR"/>
@@ -166,7 +166,7 @@
             <column name="PTH_CODIGO" value="HOJA_1"/>
             <column name="PTH_DESCRIPCION" value="Hoja tamaño Carta"/>
             <column name="PTH_SALIDAHTML" value="Hoja T/Carta"/>
-            <column name="PTH_CUSTOM" valueBoolean="false"/>
+            <column name="PTH_CUSTOM" value="0"/>
             <column name="PTH_VALORSTATIC" value="LETTER"/>
             <column name="PTH_VALORX" valueNumeric="0"/>
             <column name="PTH_VALORY" valueNumeric="0"/>
@@ -176,7 +176,7 @@
             <column name="PTH_CODIGO" value="HOJA_2"/>
             <column name="PTH_DESCRIPCION" value="Hoja tamaño Oficio"/>
             <column name="PTH_SALIDAHTML" value="Hoja T/Oficio"/>
-            <column name="PTH_CUSTOM" valueBoolean="false"/>
+            <column name="PTH_CUSTOM" value="0"/>
             <column name="PTH_VALORSTATIC" value="LEGAL"/>
             <column name="PTH_VALORX" valueNumeric="0"/>
             <column name="PTH_VALORY" valueNumeric="0"/>
@@ -186,7 +186,7 @@
             <column name="PTH_CODIGO" value="HOJA_3"/>
             <column name="PTH_DESCRIPCION" value="Hoja tamaño media Carta"/>
             <column name="PTH_SALIDAHTML" value="Hoja T/Media Carta"/>
-            <column name="PTH_CUSTOM" valueBoolean="false"/>
+            <column name="PTH_CUSTOM" value="0"/>
             <column name="PTH_VALORSTATIC" value="HALFLETTER"/>
             <column name="PTH_VALORX" valueNumeric="0"/>
             <column name="PTH_VALORY" valueNumeric="0"/>
@@ -196,7 +196,7 @@
             <column name="PTH_CODIGO" value="HOJA_4"/>
             <column name="PTH_DESCRIPCION" value="Hoja tamaño Carta Horizontal"/>
             <column name="PTH_SALIDAHTML" value="Hoja T/Carta Horizontal"/>
-            <column name="PTH_CUSTOM" valueBoolean="false"/>
+            <column name="PTH_CUSTOM" value="0"/>
             <column name="PTH_VALORSTATIC" value="LETTER_LANDSCAPE"/>
             <column name="PTH_VALORX" valueNumeric="0"/>
             <column name="PTH_VALORY" valueNumeric="0"/>
@@ -206,7 +206,7 @@
             <column name="PTH_CODIGO" value="HOJA_5"/>
             <column name="PTH_DESCRIPCION" value="Hoja tamaño Oficio"/>
             <column name="PTH_SALIDAHTML" value="Hoja T/Oficio Horizontal"/>
-            <column name="PTH_CUSTOM" valueBoolean="false"/>
+            <column name="PTH_CUSTOM" value="0"/>
             <column name="PTH_VALORSTATIC" value="LEGAL_LANDSCAPE"/>
             <column name="PTH_VALORX" valueNumeric="0"/>
             <column name="PTH_VALORY" valueNumeric="0"/>
@@ -216,7 +216,7 @@
             <column name="PTH_CODIGO" value="HOJA_6"/>
             <column name="PTH_DESCRIPCION" value="Hoja tamaño A4"/>
             <column name="PTH_SALIDAHTML" value="Hoja T/A4"/>
-            <column name="PTH_CUSTOM" valueBoolean="false"/>
+            <column name="PTH_CUSTOM" value="0"/>
             <column name="PTH_VALORSTATIC" value="A4"/>
             <column name="PTH_VALORX" valueNumeric="0"/>
             <column name="PTH_VALORY" valueNumeric="0"/>
@@ -226,7 +226,7 @@
             <column name="PTH_CODIGO" value="HOJA_7"/>
             <column name="PTH_DESCRIPCION" value="Hoja tamaño Ejecutivo"/>
             <column name="PTH_SALIDAHTML" value="Hoja T/Ejecutivo"/>
-            <column name="PTH_CUSTOM" valueBoolean="false"/>
+            <column name="PTH_CUSTOM" value="0"/>
             <column name="PTH_VALORSTATIC" value="EXECUTIVE"/>
             <column name="PTH_VALORX" valueNumeric="0"/>
             <column name="PTH_VALORY" valueNumeric="0"/>
@@ -236,7 +236,7 @@
             <column name="PTH_CODIGO" value="HOJA_7"/>
             <column name="PTH_DESCRIPCION" value="Hoja tamaño Postal"/>
             <column name="PTH_SALIDAHTML" value="Hoja T/Postal"/>
-            <column name="PTH_CUSTOM" valueBoolean="false"/>
+            <column name="PTH_CUSTOM" value="0"/>
             <column name="PTH_VALORSTATIC" value="POSTCARD"/>
             <column name="PTH_VALORX" valueNumeric="0"/>
             <column name="PTH_VALORY" valueNumeric="0"/>
@@ -286,7 +286,7 @@
             <column name="PC_MARGENIZQUIERDO" valueNumeric="3.00"/>
             <column name="PC_MARGENINFERIOR" valueNumeric="2.50"/>
             <column name="PC_MARGENSUPERIOR" valueNumeric="2.50"/>
-            <column name="PC_DEFAULT" valueBoolean="true"/>
+            <column name="PC_DEFAULT" value="1"/>
             <column name="PC_IDTAMANIOHOJA" valueComputed="(SELECT PTH_ID FROM PLANTILLATAMANIOHOJA WHERE PTH_CODIGO = 'HOJA_1')"/>
             <column name="PC_IDUNIDADMEDIDA" valueComputed="(SELECT PUM_ID FROM PLANTILLAUNIDADMEDIDA WHERE PUM_CODIGO = 'UNIDAD_CM')"/>
             <column name="PC_IDTIPOFUENTE" valueComputed="(SELECT PTF_ID FROM PLANTILLATIPOFUENTE WHERE PTF_CODIGO = 'FUENTE_1')"/>
@@ -343,7 +343,7 @@
             <column name="CGA_NOMBRE" value="Recursos Humanos"/>
             <column name="CGA_DESCRIPCION" value="Recursos Humanos"/>
             <column name="CGA_FECHAREGISTRO" valueComputed="(SELECT NOW())"/>
-            <column name="CGA_ACTIVO" valueBoolean="true"/>
+            <column name="CGA_ACTIVO" value="1"/>
             <column name="CGA_IDCLASIFICACIONPADRE"/>
             <column name="CGA_NIVEL" valueNumeric="1"/>
             <!--<column name="CGA_IDUSUARIOMODIFICA" valueComputed="(SELECT USUARIO_ID FROM USUARIO WHERE USUARIO_USUARIO = 'system')"/>-->
@@ -354,7 +354,7 @@
             <column name="CGA_NOMBRE" value="Programación, Organización y Presupuestación"/>
             <column name="CGA_DESCRIPCION" value="Programación, Organización y Presupuestación"/>
             <column name="CGA_FECHAREGISTRO" valueComputed="(SELECT NOW())"/>
-            <column name="CGA_ACTIVO" valueBoolean="true"/>
+            <column name="CGA_ACTIVO" value="1"/>
             <column name="CGA_IDCLASIFICACIONPADRE"/>
             <column name="CGA_NIVEL" valueNumeric="1"/>
             <!--<column name="CGA_IDUSUARIOMODIFICA" valueComputed="(SELECT USUARIO_ID FROM USUARIO WHERE USUARIO_USUARIO = 'system')"/>-->
@@ -365,7 +365,7 @@
             <column name="CGA_NOMBRE" value="Recursos Materiales y Obra Pública"/>
             <column name="CGA_DESCRIPCION" value="Recursos Materiales y Obra Pública"/>
             <column name="CGA_FECHAREGISTRO" valueComputed="(SELECT NOW())"/>
-            <column name="CGA_ACTIVO" valueBoolean="true"/>
+            <column name="CGA_ACTIVO" value="1"/>
             <column name="CGA_IDCLASIFICACIONPADRE"/>
             <column name="CGA_NIVEL" valueNumeric="1"/>
             <!--<column name="CGA_IDUSUARIOMODIFICA" valueComputed="(SELECT USUARIO_ID FROM USUARIO WHERE USUARIO_USUARIO = 'system')"/>-->
@@ -376,7 +376,7 @@
             <column name="CGA_NOMBRE" value="Comunicación Social"/>
             <column name="CGA_DESCRIPCION" value="Comunicación Social"/>
             <column name="CGA_FECHAREGISTRO" valueComputed="(SELECT NOW())"/>
-            <column name="CGA_ACTIVO" valueBoolean="true"/>
+            <column name="CGA_ACTIVO" value="1"/>
             <column name="CGA_IDCLASIFICACIONPADRE"/>
             <column name="CGA_NIVEL" valueNumeric="1"/>
             <!--<column name="CGA_IDUSUARIOMODIFICA" valueComputed="(SELECT USUARIO_ID FROM USUARIO WHERE USUARIO_USUARIO = 'system')"/>-->
@@ -387,7 +387,7 @@
             <column name="CGA_NOMBRE" value="Operaciones y comercialización"/>
             <column name="CGA_DESCRIPCION" value="Operaciones y comercialización"/>
             <column name="CGA_FECHAREGISTRO" valueComputed="(SELECT NOW())"/>
-            <column name="CGA_ACTIVO" valueBoolean="true"/>
+            <column name="CGA_ACTIVO" value="1"/>
             <column name="CGA_IDCLASIFICACIONPADRE"/>
             <column name="CGA_NIVEL" valueNumeric="1"/>
             <!--<column name="CGA_IDUSUARIOMODIFICA" valueComputed="(SELECT USUARIO_ID FROM USUARIO WHERE USUARIO_USUARIO = 'system')"/>-->
@@ -398,7 +398,7 @@
             <column name="CGA_NOMBRE" value="Servicios Generales"/>
             <column name="CGA_DESCRIPCION" value="Servicios Generales"/>
             <column name="CGA_FECHAREGISTRO" valueComputed="(SELECT NOW())"/>
-            <column name="CGA_ACTIVO" valueBoolean="true"/>
+            <column name="CGA_ACTIVO" value="1"/>
             <column name="CGA_IDCLASIFICACIONPADRE"/>
             <column name="CGA_NIVEL" valueNumeric="1"/>
             <!--<column name="CGA_IDUSUARIOMODIFICA" valueComputed="(SELECT USUARIO_ID FROM USUARIO WHERE USUARIO_USUARIO = 'system')"/>-->
@@ -409,7 +409,7 @@
             <column name="CGA_NOMBRE" value="Tecnologías y Servicios de la Información"/>
             <column name="CGA_DESCRIPCION" value="Tecnologías y Servicios de la Información"/>
             <column name="CGA_FECHAREGISTRO" valueComputed="(SELECT NOW())"/>
-            <column name="CGA_ACTIVO" valueBoolean="true"/>
+            <column name="CGA_ACTIVO" value="1"/>
             <column name="CGA_IDCLASIFICACIONPADRE"/>
             <column name="CGA_NIVEL" valueNumeric="1"/>
             <!--<column name="CGA_IDUSUARIOMODIFICA" valueComputed="(SELECT USUARIO_ID FROM USUARIO WHERE USUARIO_USUARIO = 'system')"/>-->
@@ -420,7 +420,7 @@
             <column name="CGA_NOMBRE" value="Transparencia y Acceso a la Información"/>
             <column name="CGA_DESCRIPCION" value="Transparencia y Acceso a la Información"/>
             <column name="CGA_FECHAREGISTRO" valueComputed="(SELECT NOW())"/>
-            <column name="CGA_ACTIVO" valueBoolean="true"/>
+            <column name="CGA_ACTIVO" value="1"/>
             <column name="CGA_IDCLASIFICACIONPADRE"/>
             <column name="CGA_NIVEL" valueNumeric="1"/>
             <!--<column name="CGA_IDUSUARIOMODIFICA" valueComputed="(SELECT USUARIO_ID FROM USUARIO WHERE USUARIO_USUARIO = 'system')"/>-->
@@ -431,7 +431,7 @@
             <column name="CGA_NOMBRE" value="Expediente único de personal"/>
             <column name="CGA_DESCRIPCION" value="Expediente único de personal"/>
             <column name="CGA_FECHAREGISTRO" valueComputed="(SELECT NOW())"/>
-            <column name="CGA_ACTIVO" valueBoolean="true"/>
+            <column name="CGA_ACTIVO" value="1"/>
             <column name="CGA_IDCLASIFICACIONPADRE" valueComputed="(SELECT CGA_ID FROM CLASIFICACIONGENERALARCHIVOS WHERE CGA_CODIGO = '1C')"/>
             <column name="CGA_NIVEL" valueNumeric="2"/>
             <!--<column name="CGA_IDUSUARIOMODIFICA" valueComputed="(SELECT USUARIO_ID FROM USUARIO WHERE USUARIO_USUARIO = 'system')"/>-->
@@ -442,7 +442,7 @@
             <column name="CGA_NOMBRE" value="Nómina de pago de personal"/>
             <column name="CGA_DESCRIPCION" value="Nómina de pago de personal"/>
             <column name="CGA_FECHAREGISTRO" valueComputed="(SELECT NOW())"/>
-            <column name="CGA_ACTIVO" valueBoolean="true"/>
+            <column name="CGA_ACTIVO" value="1"/>
             <column name="CGA_IDCLASIFICACIONPADRE" valueComputed="(SELECT CGA_ID FROM CLASIFICACIONGENERALARCHIVOS WHERE CGA_CODIGO = '1C')"/>
             <column name="CGA_NIVEL" valueNumeric="2"/>
             <!--<column name="CGA_IDUSUARIOMODIFICA" valueComputed="(SELECT USUARIO_ID FROM USUARIO WHERE USUARIO_USUARIO = 'system')"/>-->
@@ -453,7 +453,7 @@
             <column name="CGA_NOMBRE" value="Reclutamiento y selección de personal"/>
             <column name="CGA_DESCRIPCION" value="Reclutamiento y selección de personal"/>
             <column name="CGA_FECHAREGISTRO" valueComputed="(SELECT NOW())"/>
-            <column name="CGA_ACTIVO" valueBoolean="true"/>
+            <column name="CGA_ACTIVO" value="1"/>
             <column name="CGA_IDCLASIFICACIONPADRE" valueComputed="(SELECT CGA_ID FROM CLASIFICACIONGENERALARCHIVOS WHERE CGA_CODIGO = '1C')"/>
             <column name="CGA_NIVEL" valueNumeric="2"/>
             <!--<column name="CGA_IDUSUARIOMODIFICA" valueComputed="(SELECT USUARIO_ID FROM USUARIO WHERE USUARIO_USUARIO = 'system')"/>-->
@@ -464,7 +464,7 @@
             <column name="CGA_NOMBRE" value="Identificación y acreditación de personal"/>
             <column name="CGA_DESCRIPCION" value="Identificación y acreditación de personal"/>
             <column name="CGA_FECHAREGISTRO" valueComputed="(SELECT NOW())"/>
-            <column name="CGA_ACTIVO" valueBoolean="true"/>
+            <column name="CGA_ACTIVO" value="1"/>
             <column name="CGA_IDCLASIFICACIONPADRE" valueComputed="(SELECT CGA_ID FROM CLASIFICACIONGENERALARCHIVOS WHERE CGA_CODIGO = '1C')"/>
             <column name="CGA_NIVEL" valueNumeric="2"/>
             <!--<column name="CGA_IDUSUARIOMODIFICA" valueComputed="(SELECT USUARIO_ID FROM USUARIO WHERE USUARIO_USUARIO = 'system')"/>-->
@@ -475,7 +475,7 @@
             <column name="CGA_NOMBRE" value="Disposiciones en materia de programación"/>
             <column name="CGA_DESCRIPCION" value="Disposiciones en materia de programación"/>
             <column name="CGA_FECHAREGISTRO" valueComputed="(SELECT NOW())"/>
-            <column name="CGA_ACTIVO" valueBoolean="true"/>
+            <column name="CGA_ACTIVO" value="1"/>
             <column name="CGA_IDCLASIFICACIONPADRE" valueComputed="(SELECT CGA_ID FROM CLASIFICACIONGENERALARCHIVOS WHERE CGA_CODIGO = '2C')"/>
             <column name="CGA_NIVEL" valueNumeric="2"/>
             <!--<column name="CGA_IDUSUARIOMODIFICA" valueComputed="(SELECT USUARIO_ID FROM USUARIO WHERE USUARIO_USUARIO = 'system')"/>-->
@@ -486,7 +486,7 @@
             <column name="CGA_NOMBRE" value="Programas y proyectos en materia de programación"/>
             <column name="CGA_DESCRIPCION" value="Programas y proyectos en materia de programación"/>
             <column name="CGA_FECHAREGISTRO" valueComputed="(SELECT NOW())"/>
-            <column name="CGA_ACTIVO" valueBoolean="true"/>
+            <column name="CGA_ACTIVO" value="1"/>
             <column name="CGA_IDCLASIFICACIONPADRE" valueComputed="(SELECT CGA_ID FROM CLASIFICACIONGENERALARCHIVOS WHERE CGA_CODIGO = '2C')"/>
             <column name="CGA_NIVEL" valueNumeric="2"/>
             <!--<column name="CGA_IDUSUARIOMODIFICA" valueComputed="(SELECT USUARIO_ID FROM USUARIO WHERE USUARIO_USUARIO = 'system')"/>-->
@@ -497,7 +497,7 @@
             <column name="CGA_NOMBRE" value="Licitaciones"/>
             <column name="CGA_DESCRIPCION" value="Licitaciones"/>
             <column name="CGA_FECHAREGISTRO" valueComputed="(SELECT NOW())"/>
-            <column name="CGA_ACTIVO" valueBoolean="true"/>
+            <column name="CGA_ACTIVO" value="1"/>
             <column name="CGA_IDCLASIFICACIONPADRE" valueComputed="(SELECT CGA_ID FROM CLASIFICACIONGENERALARCHIVOS WHERE CGA_CODIGO = '3C')"/>
             <column name="CGA_NIVEL" valueNumeric="2"/>
             <!--<column name="CGA_IDUSUARIOMODIFICA" valueComputed="(SELECT USUARIO_ID FROM USUARIO WHERE USUARIO_USUARIO = 'system')"/>-->
@@ -508,7 +508,7 @@
             <column name="CGA_NOMBRE" value="Adquisiciones"/>
             <column name="CGA_DESCRIPCION" value="Adquisiciones"/>
             <column name="CGA_FECHAREGISTRO" valueComputed="(SELECT NOW())"/>
-            <column name="CGA_ACTIVO" valueBoolean="true"/>
+            <column name="CGA_ACTIVO" value="1"/>
             <column name="CGA_IDCLASIFICACIONPADRE" valueComputed="(SELECT CGA_ID FROM CLASIFICACIONGENERALARCHIVOS WHERE CGA_CODIGO = '3C')"/>
             <column name="CGA_NIVEL" valueNumeric="2"/>
             <!--<column name="CGA_IDUSUARIOMODIFICA" valueComputed="(SELECT USUARIO_ID FROM USUARIO WHERE USUARIO_USUARIO = 'system')"/>-->
@@ -519,7 +519,7 @@
             <column name="CGA_NOMBRE" value="Control de contratos"/>
             <column name="CGA_DESCRIPCION" value="Control de contratos"/>
             <column name="CGA_FECHAREGISTRO" valueComputed="(SELECT NOW())"/>
-            <column name="CGA_ACTIVO" valueBoolean="true"/>
+            <column name="CGA_ACTIVO" value="1"/>
             <column name="CGA_IDCLASIFICACIONPADRE" valueComputed="(SELECT CGA_ID FROM CLASIFICACIONGENERALARCHIVOS WHERE CGA_CODIGO = '3C')"/>
             <column name="CGA_NIVEL" valueNumeric="2"/>
             <!--<column name="CGA_IDUSUARIOMODIFICA" valueComputed="(SELECT USUARIO_ID FROM USUARIO WHERE USUARIO_USUARIO = 'system')"/>-->
@@ -530,7 +530,7 @@
             <column name="CGA_NOMBRE" value="Seguros y fianzas"/>
             <column name="CGA_DESCRIPCION" value="Seguros y fianzas"/>
             <column name="CGA_FECHAREGISTRO" valueComputed="(SELECT NOW())"/>
-            <column name="CGA_ACTIVO" valueBoolean="true"/>
+            <column name="CGA_ACTIVO" value="1"/>
             <column name="CGA_IDCLASIFICACIONPADRE" valueComputed="(SELECT CGA_ID FROM CLASIFICACIONGENERALARCHIVOS WHERE CGA_CODIGO = '3C.3')"/>
             <column name="CGA_NIVEL" valueNumeric="3"/>
             <!--<column name="CGA_IDUSUARIOMODIFICA" valueComputed="(SELECT USUARIO_ID FROM USUARIO WHERE USUARIO_USUARIO = 'system')"/>-->
@@ -1075,7 +1075,7 @@
             <column name="PLANTILLA_IDENTIDADMAPEO" valueComputed="(SELECT ENTIDADMAPEO_ID FROM ENTIDADMAPEO WHERE ENTIDADMAPEO_CODIGO = 'CONTRATOAFECTACION')"/>
             <column name="PLANTILLA_IDCLASIFICACION" valueComputed="(SELECT CGA_ID FROM CLASIFICACIONGENERALARCHIVOS WHERE CGA_CODIGO = '3C')"/>
             <column name="PLANTILLA_IDCONFIGURACION" valueComputed="(SELECT PC_ID FROM PLANTILLA_CONFIGURACION WHERE PC_CODIGO = 'DEFAULT')"/>
-            <column name="PLANTILLA_ACTIVO" valueBoolean="true"/>
+            <column name="PLANTILLA_ACTIVO" value="1"/>
             <column name="PLANTILLA_IDTIPOPLANTILLA" valueComputed="(SELECT CAT_ID FROM CATALOGOGENERAL WHERE CAT_CODIGO = 'PLANT_CONTRATOAFEC')"/>
             <column name="PLANTILLA_FECHAREGISTRO" valueComputed="(SELECT NOW())"/>
             <!--<column name="PLANTILLA_IDUSUARIOMODIFICA" valueComputed="(SELECT USUARIO_ID FROM USUARIO WHERE USUARIO_USUARIO = 'system')"/>-->
@@ -1088,7 +1088,7 @@
             <column name="PLANTILLA_IDENTIDADMAPEO" valueComputed="(SELECT ENTIDADMAPEO_ID FROM ENTIDADMAPEO WHERE ENTIDADMAPEO_CODIGO = 'CONTRATOAFECTACION')"/>
             <column name="PLANTILLA_IDCLASIFICACION" valueComputed="(SELECT CGA_ID FROM CLASIFICACIONGENERALARCHIVOS WHERE CGA_CODIGO = '3C')"/>
             <column name="PLANTILLA_IDCONFIGURACION" valueComputed="(SELECT PC_ID FROM PLANTILLA_CONFIGURACION WHERE PC_CODIGO = 'DEFAULT')"/>
-            <column name="PLANTILLA_ACTIVO" valueBoolean="true"/>
+            <column name="PLANTILLA_ACTIVO" value="1"/>
             <column name="PLANTILLA_IDTIPOPLANTILLA" valueComputed="(SELECT CAT_ID FROM CATALOGOGENERAL WHERE CAT_CODIGO = 'PLANT_CONTRATO')"/>
             <column name="PLANTILLA_FECHAREGISTRO" valueComputed="(SELECT NOW())"/>
             <!--<column name="PLANTILLA_IDUSUARIOMODIFICA" valueComputed="(SELECT USUARIO_ID FROM USUARIO WHERE USUARIO_USUARIO = 'system')"/>-->
@@ -1101,7 +1101,7 @@
             <column name="PLANTILLA_IDENTIDADMAPEO" valueComputed="(SELECT ENTIDADMAPEO_ID FROM ENTIDADMAPEO WHERE ENTIDADMAPEO_CODIGO = 'CONTRATOAFECTACION')"/>
             <column name="PLANTILLA_IDCLASIFICACION" valueComputed="(SELECT CGA_ID FROM CLASIFICACIONGENERALARCHIVOS WHERE CGA_CODIGO = '4C')"/>
             <column name="PLANTILLA_IDCONFIGURACION" valueComputed="(SELECT PC_ID FROM PLANTILLA_CONFIGURACION WHERE PC_CODIGO = 'DEFAULT')"/>
-            <column name="PLANTILLA_ACTIVO" valueBoolean="true"/>
+            <column name="PLANTILLA_ACTIVO" value="1"/>
             <column name="PLANTILLA_IDTIPOPLANTILLA" valueComputed="(SELECT CAT_ID FROM CATALOGOGENERAL WHERE CAT_CODIGO = 'PLANT_CONTRATO')"/>
             <column name="PLANTILLA_FECHAREGISTRO" valueComputed="(SELECT NOW())"/>
             <!--<column name="PLANTILLA_IDUSUARIOMODIFICA" valueComputed="(SELECT USUARIO_ID FROM USUARIO WHERE USUARIO_USUARIO = 'system')"/>-->

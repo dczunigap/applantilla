@@ -9,6 +9,6 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class JerseyConfig extends ResourceConfig{
     public JerseyConfig(){
-        packages(true, "com.example.api");
+        packages(true, "mx.com.plantilla.api");
     }
 }
