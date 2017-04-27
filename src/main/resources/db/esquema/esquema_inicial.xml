@@ -96,7 +96,7 @@
             <column defaultValueComputed="('now'::text)::date" name="categoriacodigo_fecharegistro" type="date">
                 <constraints nullable="false"/>
             </column>
-            <column name="categoriacodigo_idusuarioregist" type="BIGINT"/>
+            <!--<column name="categoriacodigo_idusuarioregist" type="BIGINT"/>-->
         </createTable>
     </changeSet>
     <changeSet author="dzuniga" id="1491957486053-22">
@@ -113,9 +113,9 @@
             <column defaultValueComputed="('now'::text)::date" name="catconfig_fecharegistro" type="date">
                 <constraints nullable="false"/>
             </column>
-            <column name="catconfig_idusuarioregistro" type="BIGINT">
+            <!--<column name="catconfig_idusuarioregistro" type="BIGINT">
                 <constraints nullable="false"/>
-            </column>
+            </column>-->
         </createTable>
     </changeSet>
     <changeSet author="dzuniga" id="1491957486053-23">
@@ -138,9 +138,9 @@
             <column defaultValueNumeric="1" name="cga_nivel" remarks="Nivel de la rama, cuando es nodo padre es nivel 1, en caso contrario sube al siguiente nivel del padre." type="numeric(10)">
                 <constraints nullable="false"/>
             </column>
-            <column name="cga_idusuariomodifica" type="BIGINT">
+            <!--<column name="cga_idusuariomodifica" type="BIGINT">
                 <constraints nullable="false"/>
-            </column>
+            </column>-->
             <column defaultValueComputed="('now'::text)::date" name="cga_fechaultimamodificacion" type="date"/>
         </createTable>
     </changeSet>
@@ -272,9 +272,9 @@
                 <constraints nullable="false"/>
             </column>
             <column defaultValueComputed="('now'::text)::date" name="plantilla_fecharegistro" type="date"/>
-            <column name="plantilla_idusuariomodifica" type="BIGINT">
+            <!--<column name="plantilla_idusuariomodifica" type="BIGINT">
                 <constraints nullable="false"/>
-            </column>
+            </column>-->
             <column defaultValueComputed="('now'::text)::date" name="plantilla_fechaultimamodificaci" type="date"/>
         </createTable>
     </changeSet>
@@ -286,7 +286,7 @@
             <column name="pce_codigo" type="VARCHAR(15)">
                 <constraints nullable="false"/>
             </column>
-            <column name="pce_valor" type="CHAR(1)">
+            <column name="pce_valor" type="TEXT">
                 <constraints nullable="false"/>
             </column>
             <column name="pce_fecharegistro" type="date">
@@ -295,9 +295,9 @@
             <column name="pce_idtiposeccion" type="BIGINT">
                 <constraints nullable="false"/>
             </column>
-            <column name="pce_idusuariomodifica" type="BIGINT">
+            <!--<column name="pce_idusuariomodifica" type="BIGINT">
                 <constraints nullable="false"/>
-            </column>
+            </column>-->
             <column defaultValueComputed="('now'::text)::date" name="pce_fechaultimamodificacion" type="date"/>
         </createTable>
     </changeSet>
@@ -330,9 +330,9 @@
                 <constraints nullable="false"/>
             </column>
             <column defaultValueComputed="('now'::text)::date" name="pc_fecharegistro" type="date"/>
-            <column name="pc_idusuariomodifica" type="BIGINT">
+            <!--<column name="pc_idusuariomodifica" type="BIGINT">
                 <constraints nullable="false"/>
-            </column>
+            </column>-->
             <column defaultValueComputed="('now'::text)::date" name="pc_fechaultimamodificacion" type="date"/>
         </createTable>
     </changeSet>
@@ -348,9 +348,9 @@
             </column>
             <column name="pe_idelementoorigen" type="BIGINT"/>
             <column defaultValueComputed="('now'::text)::date" name="pe_fecharegistro" type="date"/>
-            <column name="pe_idusuariomodifica" type="BIGINT">
+            <!--<column name="pe_idusuariomodifica" type="BIGINT">
                 <constraints nullable="false"/>
-            </column>
+            </column>-->
             <column defaultValueComputed="('now'::text)::date" name="pe_fechaultimamodificacion" type="date"/>
         </createTable>
     </changeSet>
@@ -378,9 +378,9 @@
                 <constraints nullable="false"/>
             </column>
             <column defaultValueComputed="('now'::text)::date" name="pes_fecharegistro" type="date"/>
-            <column name="pes_idusuariomodifica" type="BIGINT">
+            <!--<column name="pes_idusuariomodifica" type="BIGINT">
                 <constraints nullable="false"/>
-            </column>
+            </column>-->
             <column defaultValueComputed="('now'::text)::date" name="pes_fechaultimamodificacion" type="date"/>
         </createTable>
     </changeSet>
@@ -397,9 +397,9 @@
                 <constraints nullable="false"/>
             </column>
             <column defaultValueComputed="('now'::text)::date" name="pec_fecharegistro" type="date"/>
-            <column name="pec_idusuariomodifica" type="BIGINT">
+            <!--<column name="pec_idusuariomodifica" type="BIGINT">
                 <constraints nullable="false"/>
-            </column>
+            </column>-->
             <column defaultValueComputed="('now'::text)::date" name="pec_fechaultimamodificacion" type="date"/>
         </createTable>
     </changeSet>
@@ -544,9 +544,9 @@
     <changeSet author="dzuniga" id="1491957486053-57">
         <addForeignKeyConstraint baseColumnNames="pe_idelementoorigen" baseTableCatalogName="plantilla_db" baseTableName="plantilla_elementos" baseTableSchemaName="public" constraintName="fk_pe_idelementos" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="pce_id" referencedTableCatalogName="plantilla_db" referencedTableName="plantilla_catalogo_elementos" referencedTableSchemaName="public"/>
     </changeSet>
-    <changeSet author="dzuniga" id="1491957486053-58">
+    <!--<changeSet author="dzuniga" id="1491957486053-58">
         <addForeignKeyConstraint baseColumnNames="pes_idconfiguracionorigen" baseTableCatalogName="plantilla_db" baseTableName="plantilla_esqueleto" baseTableSchemaName="public" constraintName="fk_pes_idusuario" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="pec_id" referencedTableCatalogName="plantilla_db" referencedTableName="plantilla_esqueleto_configuraci" referencedTableSchemaName="public"/>
-    </changeSet>
+    </changeSet>-->
     <changeSet author="dzuniga" id="1491957486053-59">
         <addForeignKeyConstraint baseColumnNames="plantilla_idclasificacion" baseTableCatalogName="plantilla_db" baseTableName="plantilla" baseTableSchemaName="public" constraintName="fk_plantilla_clasificacion" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="cga_id" referencedTableCatalogName="plantilla_db" referencedTableName="clasificaciongeneralarchivos" referencedTableSchemaName="public"/>
     </changeSet>
