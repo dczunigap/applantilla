@@ -6,7 +6,7 @@
 	<groupId>mx.com.plantilla</groupId>
 	<artifactId>applantilla</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 
 	<name>applantilla</name>
 	<description>Proyecto de plantilla</description>
@@ -25,28 +25,52 @@
 	</properties>
 
 	<dependencies>
+		<!-- Setup jpa -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
+			<version>1.5.3.RELEASE</version>
 		</dependency>
+
+		<!-- Setup Jersey for Api Rest -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-jersey</artifactId>
+			<version>1.5.3.RELEASE</version>
 		</dependency>
+
+		<!-- Setup Spring MVC & REST, use Embedded Tomcat -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+			<version>1.5.3.RELEASE</version>
+		</dependency>
+
+		<!-- Setup Actuator -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+			<version>1.5.3.RELEASE</version>
+		</dependency>
+
+		<!-- Security -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+			<version>1.5.3.RELEASE</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
+			<version>1.5.3.RELEASE</version>
 			<scope>test</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.restdocs</groupId>
 			<artifactId>spring-restdocs-mockmvc</artifactId>
+			<version>1.1.2.RELEASE</version>
 			<scope>test</scope>
 		</dependency>
 
@@ -62,9 +86,9 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>1.5.3.RELEASE</version>
 			</plugin>
 		</plugins>
 	</build>
-
 
 </project>
