@@ -59,3 +59,10 @@ En esta rama, la autenticacion y consulta a los REST, se hace mediante **Postman
     
     
 - Si no especificas el token, mandara un error `403 Access Denied`
+
+**Creditos**
+
+Proyecto GitHub <https://github.com/auth0-blog/spring-boot-jwts>
+
+
+Documentacion <https://auth0.com/blog/securing-spring-boot-with-jwts>
