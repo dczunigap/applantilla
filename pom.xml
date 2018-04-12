@@ -4,17 +4,17 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>mx.com.plantilla</groupId>
-	<artifactId>applantilla</artifactId>
+	<artifactId>springboot-jwt-rest</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>applantilla</name>
-	<description>Proyecto de plantilla</description>
+	<name>springboot-jwt-rest</name>
+	<description>Demo project for Spring Boot</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.5.3.RELEASE</version>
+		<version>2.0.1.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
@@ -29,14 +29,14 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
-			<version>1.5.3.RELEASE</version>
+			<version>2.0.1.RELEASE</version>
 		</dependency>
 
 		<!-- Setup Jersey for Api Rest -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-jersey</artifactId>
-			<version>1.5.3.RELEASE</version>
+			<version>2.0.1.RELEASE</version>
 		</dependency>
 
 		<!-- Setup Spring MVC & REST, use Embedded Tomcat -->
@@ -50,27 +50,27 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
-			<version>1.5.3.RELEASE</version>
+			<version>2.0.1.RELEASE</version>
 		</dependency>
 
 		<!-- Security -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
-			<version>1.5.3.RELEASE</version>
+			<version>2.0.1.RELEASE</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
-			<version>1.5.3.RELEASE</version>
+			<version>2.0.1.RELEASE</version>
 			<scope>test</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.restdocs</groupId>
 			<artifactId>spring-restdocs-mockmvc</artifactId>
-			<version>1.1.2.RELEASE</version>
+			<version>2.0.1.RELEASE</version>
 			<scope>test</scope>
 		</dependency>
 
@@ -85,7 +85,7 @@
 		<dependency>
 			<groupId>io.jsonwebtoken</groupId>
 			<artifactId>jjwt</artifactId>
-			<version>0.7.0</version>
+			<version>0.9.0</version>
 		</dependency>
 
 		<!-- Client for Eureka Server -->
@@ -101,7 +101,7 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-				<version>1.5.3.RELEASE</version>
+				<version>2.0.1.RELEASE</version>
 			</plugin>
 		</plugins>
 	</build>

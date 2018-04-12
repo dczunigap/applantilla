@@ -2,7 +2,6 @@ package mx.com.plantilla.service;
 
 import mx.com.plantilla.dao.CatalogoGeneralDao;
 import mx.com.plantilla.model.CatalogoGeneral;
-import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -16,7 +15,6 @@ import java.util.List;
 @Service
 @Transactional(readOnly = true)
 public class CatalogoGeneralService {
-    final static Logger logger = Logger.getLogger(CatalogoGeneral.class);
 
     @Autowired
     @Qualifier(value = "catalogoGeneralDao")

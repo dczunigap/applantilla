@@ -1,4 +1,4 @@
-# applantilla
+# jwt-example
 
 
 ### SpringBoot + Hibernate 5 + JPA + Rest API + Jwt
@@ -33,12 +33,16 @@ En esta rama, la autenticacion y consulta a los REST, se hace mediante **Postman
 #### Ejecución del proyecto
 - Para ejecutar el proyecto, colocar la siguiente linea:
     
+    
     mvn spring-boot:run
+
 
 ##### Obtener el token de autenticación
 - Configurar en postman:
     
-    POST localhost:9001/applantilla/login
+    
+    POST localhost:9001/jwt-example/login
+    
     
 - En la opcion _`Body`_, seleccionar _`raw`_ y colocar lo siguiente:
 
@@ -52,7 +56,7 @@ En esta rama, la autenticacion y consulta a los REST, se hace mediante **Postman
 - Configurar en postman:
 
 
-    GET http://localhost:9001/applantilla/api/entidad
+    GET http://localhost:9001/jwt-example/api/entidad
     
     
 - En la opcion _`Headers`_ colocar lo siguiente:

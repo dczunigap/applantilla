@@ -19,20 +19,31 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable().authorizeRequests()
-                .antMatchers("/").permitAll()
-                .antMatchers(HttpMethod.POST, "/login").permitAll()
+                .antMatchers(HttpMethod.GET,
+                        "/",
+                        "/*.html",
+                        "/favicon.ico",
+                        "/**/*.html",
+                        "/**/*.css",
+                        "/**/*.js").permitAll()
+                .antMatchers(HttpMethod.POST, "/login/**").permitAll()
+                .antMatchers(HttpMethod.GET, "/api/user/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .addFilterBefore(new JWTLoginFilter("/login", authenticationManager()),
                     UsernamePasswordAuthenticationFilter.class)
-                .addFilterBefore(new JWTAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
+                .addFilterBefore(new JWTAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class)
+
+                //disable page caching
+                .headers().cacheControl();
     }
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        //Se puede colocar tantos inMemoryAuthentication para ejemplos como sea necesario
         auth.inMemoryAuthentication()
                 .withUser("user")
-                .password("pass")
+                .password("{noop}pass") //Se agrega el parametro {noop} para evitar que el password sea codificado
                 .roles("ADMIN");
     }
 }

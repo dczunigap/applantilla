@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Ejemplo JWT</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="css/bootstrap-4.1.0-css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/custom-styles.css" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <h1>JWT Spring Security Demo</h1>
+
+    <div class="alert alert-danger" id="notLoggedIn">No estas logueado!</div>
+
+    <div class="alert alert-info text-hidden" id="loggedIn"></div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card" id="login">
+                <div class="card-header">
+                    Login
+                </div>
+                <div class="card-body">
+                    <form id="loginForm">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="exampleUsername" placeholder="username"
+                                   required name="username">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" id="examplePassword" placeholder="password"
+                                   required name="password">
+                        </div>
+                        <div class="well">
+                            Ingresa con el siguiente usuario:
+                            <ul>
+                                <li>user & pass</li>
+                            </ul>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Log In</button>
+                    </form>
+                </div>
+            </div>
+
+            <div id="userInfo">
+                <div class="card">
+                    <div class="card-header">
+                        Authenticated user
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title" id="userInfoBody"></h5>
+                        <button type="button" class="btn btn-default" id="logoutButton">logout</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+
+            <div class="card">
+                <div class="card-header">
+                    Consulta Rest:
+                </div>
+                <div class="card-body">
+                    <div class="btn-group" role="group" aria-label="..." style="margin-bottom: 16px;">
+                        <button type="button" class="btn btn-info" id="exampleServiceBtn">/api/entidad</button>
+                    </div>
+                    <h6 class="card-title">Response:</h6>
+                    <pre id="response"></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+<script src="js/jquery-3.3.1/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
+<script src="js/popper.js-1.14.3/umd/popper.min.js" crossorigin="anonymous"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="js/bootstrap-4.1.0-js/bootstrap.min.js" crossorigin="anonymous"></script>
+<script src="js/index.js"></script>
+
+</html>
