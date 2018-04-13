@@ -23,7 +23,7 @@ public class UserRest {
     private UserService userService;
 
     @GET
-    @Path("/info/{token}")
+    @Path("/{token}")
     @Produces(MediaType.APPLICATION_JSON)
     public Map<String, String> getInfo(@PathParam("token") String token){
         return userService.getUserInfo(token);

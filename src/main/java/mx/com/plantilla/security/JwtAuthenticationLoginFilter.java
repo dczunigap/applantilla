@@ -31,9 +31,8 @@ public class JwtAuthenticationLoginFilter extends UsernamePasswordAuthentication
     @Autowired
     private JwtTokenUtil jwtTokenUtil;
 
-    public JwtAuthenticationLoginFilter(AuthenticationManager authManager, ApplicationContext ctx) {
+    public JwtAuthenticationLoginFilter(AuthenticationManager authManager) {
         setAuthenticationManager(authManager);
-        //this.jwtTokenUtil = ctx.getBean(JwtTokenUtil.class);
     }
 
     @Override

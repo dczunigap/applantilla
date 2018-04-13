@@ -65,7 +65,7 @@ $(function () {
 
     function showUserInformation() {
         $.ajax({
-            url: "/jwt-example/api/user/info/" + getJwtToken(),
+            url: "/jwt-example/api/user/" + getJwtToken(),
             type: "GET",
             contentType: "application/json; charset=utf-8",
             dataType: "json",
