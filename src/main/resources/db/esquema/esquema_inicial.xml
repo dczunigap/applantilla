@@ -51,7 +51,7 @@
             <column autoIncrement="true" name="usuario_id" type="SERIAL">
                 <constraints primaryKey="true" primaryKeyName="usuarios_pkey"/>
             </column>
-            <column name="usuario_name" type="VARCHAR(50)">
+            <column name="usuario_nombre" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
             <column name="usuario_password" type="VARCHAR">

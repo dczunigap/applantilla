@@ -12,4 +12,6 @@ public interface GenericDao<T extends Serializable, PK extends Serializable> {
     public T findById(PK id);
 
     public List<T> findAll(T t);
+
+    public T get(T t);
 }

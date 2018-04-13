@@ -86,4 +86,10 @@
             <column name="CAT_VALOR"/>
         </insert>
     </changeSet>
+    <changeSet author="dzuniga" id="1490988416246-2">
+        <insert tableName="USUARIOS">
+            <column name="USUARIO_NOMBRE" value="user"/>
+            <column name="USUARIO_PASSWORD" value="$2a$10$ZJAFYZjPwkN.QdpAjPuulOsAwrJmVDjBlGzIgC2Uoper5J1m/6Bsq"/>
+        </insert>
+    </changeSet>
 </databaseChangeLog>

@@ -72,7 +72,12 @@ En esta rama, la autenticacion y consulta a los REST, se hace mediante **Postman
     http://localhost:9001/jwt-example
 ```
 
-**Creditos**
+#### Generating password hash for new users
+
+I'm using [bcrypt](https://en.wikipedia.org/wiki/Bcrypt) to encode passwords. Your can generate your hashes with this simple tool: [Bcrypt Generator](https://www.bcrypt-generator.com)
+
+
+### Creditos
 
 Proyecto GitHub <https://github.com/auth0-blog/spring-boot-jwts>
 

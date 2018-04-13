@@ -40,4 +40,15 @@ public class GenericDaoImpl<T extends Serializable, PK extends Serializable> imp
     public List<T> findAll(T t) {
         return entityManager.createQuery("Select t from " + entityClass.getSimpleName() + " t").getResultList();
     }
+
+    @Override
+    public T get(T t) {
+        List<T> list = findAll(t);
+
+        if (list != null && !list.isEmpty()) {
+            return list.get(0);
+        } else {
+            return null;
+        }
+    }
 }
