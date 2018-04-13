@@ -1,4 +1,4 @@
-# springbootapp
+# Jwt Demo
 ###SpringBoot + Hibernate 5 + JPA + Rest API
 
 
