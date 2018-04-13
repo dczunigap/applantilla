@@ -1,6 +1,6 @@
 package mx.com.plantilla.service;
 
-import mx.com.plantilla.security.JWTTokenUtil;
+import mx.com.plantilla.security.JwtTokenUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,7 +16,7 @@ import java.util.Map;
 public class UserService {
 
     @Autowired
-    private JWTTokenUtil jwtTokenUtil;
+    private JwtTokenUtil jwtTokenUtil;
 
     public Map<String, String> getUserInfo(String token) {
         Map<String, String> respuesta = new HashMap<>();

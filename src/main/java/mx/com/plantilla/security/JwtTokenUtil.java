@@ -4,7 +4,6 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
@@ -17,12 +16,11 @@ import java.util.Map;
  */
 
 @Component
-public class JWTTokenUtil {
-    static final String CLAIM_KEY_USERNAME = "sub";
-    static final String CLAIM_KEY_AUDIENCE = "audience";
-    static final String CLAIM_KEY_CREATED = "created";
+public class JwtTokenUtil {
+    private static final String CLAIM_KEY_USERNAME = "sub";
+    private static final String CLAIM_KEY_CREATED = "created";
 
-    long EXPIRATIONTIME = 864_000_000; // 10 days
+    private long EXPIRATIONTIME = 864_000_000; // 10 days
 
     @Value("${jwt.secret}")
     private String secret;

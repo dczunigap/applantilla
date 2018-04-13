@@ -77,9 +77,14 @@ En esta rama, la autenticacion y consulta a los REST, se hace mediante **Postman
 I'm using [bcrypt](https://en.wikipedia.org/wiki/Bcrypt) to encode passwords. Your can generate your hashes with this simple tool: [Bcrypt Generator](https://www.bcrypt-generator.com)
 
 
-### Creditos
+### Créditos
 
 Proyecto GitHub <https://github.com/auth0-blog/spring-boot-jwts>
 
-
 Documentacion <https://auth0.com/blog/securing-spring-boot-with-jwts>
+
+Documentacion: <https://www.linkedin.com/pulse/json-web-token-jwt-spring-security-real-world-example-boris-trivic>
+
+Documentacion: <https://github.com/auth0/blog/blob/master/_posts/2017-08-10-implementing-jwt-authentication-on-spring-boot.markdown>
+
+Documentarcion: <http://www.ingens-networks.com/blog/2015/02/26/oauth-2-bearer-token-conceptos-basicos/>

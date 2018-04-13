@@ -70,9 +70,8 @@ $(function () {
             contentType: "application/json; charset=utf-8",
             dataType: "json",
             success: function (data, textStatus, jqXHR) {
-                console.log(data);
                 var $userInfoBody = $userInfo.find("#userInfoBody");
-                $userInfoBody.append($("<div>").text("Username: " + $('input[name="username"]').val()));
+                $userInfoBody.append($("<div>").text("Username: " + data.username));
                 $userInfo.show();
             }
         });

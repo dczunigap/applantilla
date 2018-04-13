@@ -6,11 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -21,7 +19,7 @@ import java.util.List;
  * Created by dzuniga on 13/04/2018.
  */
 @Service
-public class SeguridadService implements UserDetailsService {
+public class JwtUserDetailService implements UserDetailsService {
 
     @Autowired
     @Qualifier(value = "usuarioDao")

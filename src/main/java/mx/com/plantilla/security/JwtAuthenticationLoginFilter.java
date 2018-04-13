@@ -13,7 +13,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import javax.servlet.FilterChain;
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -22,19 +21,19 @@ import java.util.Collections;
 /**
  * Created by dzuniga on 03/05/2017.
  */
-public class JWTLoginFilter extends UsernamePasswordAuthenticationFilter {
+public class JwtAuthenticationLoginFilter extends UsernamePasswordAuthenticationFilter {
     @Value("${jwt.tokenPrefix}")
     final String TOKEN_PREFIX = "Bearer";
 
     @Value("${jwt.header}")
     final String HEADER_STRING = "Authorization";
 
-    private JWTTokenUtil jwtTokenUtil;
+    @Autowired
+    private JwtTokenUtil jwtTokenUtil;
 
-    public JWTLoginFilter(AuthenticationManager authManager, ApplicationContext ctx) {
-        //super(new AntPathRequestMatcher(url));
+    public JwtAuthenticationLoginFilter(AuthenticationManager authManager, ApplicationContext ctx) {
         setAuthenticationManager(authManager);
-        this.jwtTokenUtil = ctx.getBean(JWTTokenUtil.class);
+        //this.jwtTokenUtil = ctx.getBean(JwtTokenUtil.class);
     }
 
     @Override
