@@ -115,9 +115,25 @@ $(function () {
 
     $("#logoutButton").click(doLogout);
 
-    $("#exampleServiceBtn").click(function () {
+    $("#exampleServiceEntidadBtn").click(function () {
         $.ajax({
             url: "/jwt-example/api/entidad",
+            type: "GET",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            headers: createAuthorizationTokenHeader(),
+            success: function (data, textStatus, jqXHR) {
+                showResponse(JSON.stringify(data, undefined, 2));
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                showResponse(JSON.stringify(jqXHR.responseJSON, undefined, 2));
+            }
+        });
+    });
+
+    $("#exampleServiceCatalogoGeneralBtn").click(function () {
+        $.ajax({
+            url: "/jwt-example/api/catalogoGeneral",
             type: "GET",
             contentType: "application/json; charset=utf-8",
             dataType: "json",
